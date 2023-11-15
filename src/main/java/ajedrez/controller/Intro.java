@@ -1,7 +1,9 @@
 package ajedrez.controller;
 
 import javafx.util.Duration;
-import ajedrez.view.CargarEscena;
+
+import java.io.IOException;
+
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -10,6 +12,7 @@ import javafx.scene.layout.Pane;
 
 
 public class Intro {
+    private Escenas escenas = Menu.escenas;
 
     @FXML
     private Pane intro;
@@ -17,7 +20,6 @@ public class Intro {
     @FXML
     private Label presentacion;
 
-    private CargarEscena cargarEscena = new CargarEscena();
 
     @FXML
     void initialize() {
@@ -41,7 +43,11 @@ public class Intro {
 
     private void animacionEscena2() {
         transition(presentacion, 1, 0).setOnFinished(e3 -> {
-            cargarEscena.cargarSiguienteScena(intro, "menu");
+            try {
+            escenas.cambiarEscena("menu");
+            } catch (IOException error) {
+                System.out.println(error);
+            }
         });
     }
 

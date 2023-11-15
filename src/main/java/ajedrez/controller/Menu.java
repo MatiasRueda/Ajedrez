@@ -1,6 +1,7 @@
 package ajedrez.controller;
 
-import ajedrez.view.CargarEscena;
+import java.io.IOException;
+
 import ajedrez.view.Musica;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +11,7 @@ import javafx.scene.layout.Pane;
 
 
 public class Menu {
+    public final static Escenas escenas = new Escenas();
 
     @FXML
     private Button botonAjedrez;
@@ -17,11 +19,9 @@ public class Menu {
     @FXML
     private Pane menu;
 
-    private CargarEscena cargarEscena = new CargarEscena();
-
     @FXML
-    void clickJugar(ActionEvent event) {
+    void clickJugar(ActionEvent event) throws IOException {
         Musica.stopMusicaFondo();
-        cargarEscena.cargarSiguienteScena(this.menu, "tablero");
+        escenas.cambiarEscena("tablero");
     }
 }

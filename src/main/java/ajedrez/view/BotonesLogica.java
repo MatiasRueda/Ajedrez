@@ -1,6 +1,9 @@
 package ajedrez.view;
 
+import java.io.IOException;
+
 import ajedrez.App.NumJugador;
+import ajedrez.controller.Escenas;
 import ajedrez.model.Juego;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
@@ -22,7 +25,7 @@ public class BotonesLogica {
     private ImagenBoton imagenBtn = new ImagenBoton();
     private Musica musica = new Musica();
     private CargarEscenaJugador cargarEscenaJugador = new CargarEscenaJugador();
-    private CargarEscena cargarEscena = new CargarEscena();
+    private Escenas escenas = ajedrez.controller.Menu.escenas;
 
     public BotonesLogica(RegistroBotones registroBtn, Juego juego, RegistroGraficos registroInfo, GridPane panel) {
         this.registroBtn = registroBtn;
@@ -104,7 +107,7 @@ public class BotonesLogica {
 /*  Metodo que se encarga de mostrar como se avanza al  
  *  siguiente turno, verificando antes si el jugador gano
  */
-    private void siguienteTurno() {
+    private void siguienteTurno() throws IOException {
         this.registroBtn.colorearPosicionesOriginales();
         if (this.juego.hayGanador()) {
             cargarSiguienteEscena();
@@ -118,24 +121,24 @@ public class BotonesLogica {
 /*  Metodo que muestra una escena con dos opciones, y se encarga de cargar una escena
  *  de acuerdo a la opcion elegida
  */
-    private void cargarSiguienteEscena() {
+    private void cargarSiguienteEscena() throws IOException {
         String numeroJugador = this.juego.getTurnoUsuario().getNumJugador().toString();
         cargarEscenaJugador.cargarOpcionesFinal(numeroJugador);
         String opcion = cargarEscenaJugador.getOpcion();
         if (opcion.equals("Reiniciar")) {
             Musica.stopMusicaFondo();
-            cargarEscena.cargarSiguienteScena(panel, "tablero");
+            escenas.cambiarEscena("tablero");
             return;
         }
         Musica.stopMusicaFondo();
         musica.musicaIntroPlay();
-        cargarEscena.cargarSiguienteScena(panel, "menu");
+        escenas.cambiarEscena("menu");
     }
 
 /*  Se encarga de la logica de los botones, si la eleccion ya fue realizada entonces
  *  hay que elegir a que posicion moverse, en caso contrario se tendra  que elegir
  */
-    private void logica(ActionEvent event, Button btn) {
+    private void logica(ActionEvent event, Button btn) throws IOException {
         if(eleccionRealizada) { 
             if (elegirIntercambio(event, btn)) siguienteTurno(); 
             return; 
@@ -144,6 +147,12 @@ public class BotonesLogica {
     }
 
     public void agregarLogicaAlBoton(Button btn) {
-        btn.setOnAction((event) -> logica(event, btn));
+        btn.setOnAction((event) -> {
+            try {
+                logica(event, btn);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 }

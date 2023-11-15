@@ -10,23 +10,23 @@ import ajedrez.App;
 public class Escenas {
     private Stage primaryStage;
 
-    public void setPrimaryStage(Stage stage) {
-        this.primaryStage = stage;
+    private FXMLLoader getFXML(String fxml) {
+        return new FXMLLoader(App.class.getResource("/ajedrez/Escenarios/"+ fxml + ".fxml"));
     }
 
-    public FXMLLoader getFXML(String fxml) {
-        return new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-    }
-
-    public Parent loadFXML(String fxml) throws IOException {
+    private Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = this.getFXML(fxml);
         return fxmlLoader.load();
     }
 
-    public Stage mostrarEscenaSig(String siguienteEscena) throws IOException{
-        Parent root = loadFXML(siguienteEscena);
-        Scene escena = new Scene(root);
-        this.primaryStage.setScene(escena);
+    public void setStage(Stage stage) {
+        this.primaryStage = stage;
+    }
+
+    public Stage cambiarEscena(String escena) throws IOException{
+        Parent root = loadFXML(escena);
+        Scene nuevaEscena = new Scene(root);
+        this.primaryStage.setScene(nuevaEscena);
         return this.primaryStage;
     }
 

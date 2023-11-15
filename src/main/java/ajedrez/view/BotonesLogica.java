@@ -16,7 +16,6 @@ public class BotonesLogica {
     private int filaEleccion;
     private int columnaCambiar;
     private int filaCambiar;
-    private GridPane panel;
     
     private RegistroBotones registroBtn;
     private Juego juego;
@@ -31,7 +30,6 @@ public class BotonesLogica {
         this.registroBtn = registroBtn;
         this.juego = juego;
         this.registroInfo = registroInfo;
-        this.panel = panel;
     }
 
 /*  Metodo encargado de graficar la eleccion, coloreando aquellos botones a los que

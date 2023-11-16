@@ -18,7 +18,7 @@ public class Usuario {
     private final int[] COLUMNA_AFIL = {2, 5};
     private final int[] COLUMNA_CABALLO = {1, 6};
     private final int[][] POSICION_FICHAS = {COLUMNA_PEON, COLUMNA_TORRE, COLUMNA_CABALLO, COLUMNA_AFIL, COLUMNA_REINA, COLUMNA_REY};
-    private final String[] NOMBRE_DE_FICHAS = {"Peon", "Torre", "Caballo", "Afil", "Reina", "Rey"};
+    private final FICHA[] NOMBRE_DE_FICHAS = {FICHA.PEON, FICHA.TORRE, FICHA.CABALLO, FICHA.AFIL, FICHA.REINA, FICHA.REY};
     private HashMap<String, Ficha> fichasDisponibles = new HashMap<>();
 
     public Usuario(JUGADOR jugador, Tablero tablero) {
@@ -98,7 +98,7 @@ public class Usuario {
         for (int columna : columnas) {
             Ficha ficha  = this.tablero.getFicha(fila, columna);
             if (ficha == null) continue;
-            if (ficha.getNombre().equals("Rey")) return true;
+            if (ficha.getNombre() == FICHA.REY.toString()) return true;
           }
         return false;
     }
@@ -107,19 +107,17 @@ public class Usuario {
 //  Metodo utilizado para agregar todas las fichas al usuario
     private void agregarFichas() {
         for(int indice = 0; indice < NOMBRE_DE_FICHAS.length; indice++) {
-            String nombreFicha = NOMBRE_DE_FICHAS[indice];
-            agregarPorCantidadDeFichas(nombreFicha, indice);
+            agregarPorCantidadDeFichas(NOMBRE_DE_FICHAS[indice], indice);
         }
     }
 
-    private void agregarPorCantidadDeFichas(String nombreFicha, int indice) {
+    private void agregarPorCantidadDeFichas(FICHA tipoFicha, int indice) {
         for (int indicePosicion = 0; indicePosicion < POSICION_FICHAS[indice].length; indicePosicion++){
-            Ficha ficha = this.fabrica.getFicha(nombreFicha, UUID.randomUUID().toString(), this.jugador);
+            Ficha ficha = this.fabrica.getFicha(tipoFicha, UUID.randomUUID().toString(), this.jugador);
             ficha.addsuscriber(registro);
             int filaElegida = (this.jugador == JUGADOR.UNO)? 0 : 7;
-            if (nombreFicha.equals("Peon")) {
+            if (tipoFicha == FICHA.PEON)
                 filaElegida = (this.jugador == JUGADOR.UNO)? 1: 6;
-            }
             this.tablero.colocarFicha(ficha, filaElegida, POSICION_FICHAS[indice][indicePosicion]);
             this.fichasDisponibles.put(ficha.getId(), ficha);
         }

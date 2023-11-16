@@ -3,6 +3,7 @@ package ajedrez.model.tipoficha;
 import java.util.HashMap;
 import java.util.ArrayList;
 
+import ajedrez.model.FICHA;
 import ajedrez.model.JUGADOR;
 import ajedrez.model.Tablero;
 import ajedrez.model.publisher.Ficha;
@@ -14,7 +15,7 @@ public class Afil extends Ficha{
     private Movible tipoDeMovimiento = new MovimientoSinRango(this);
 
     public Afil(String id, JUGADOR jugador) {
-        super("Afil", id, jugador);
+        super(FICHA.AFIL, id, jugador);
     }
 
     public HashMap<Integer, ArrayList<Integer>> verificarMovimientosPosibles(Tablero tablero){

@@ -3,6 +3,7 @@ package ajedrez.model.tipoficha;
 import java.util.HashMap;
 import java.util.ArrayList;
 
+import ajedrez.model.FICHA;
 import ajedrez.model.JUGADOR;
 import ajedrez.model.Tablero;
 import ajedrez.model.publisher.Ficha;
@@ -17,7 +18,7 @@ public class Torre extends Ficha{
     private final int FILA_REY = (this.getJugador() == JUGADOR.UNO)?  0 : 7;
 
     public Torre (String id, JUGADOR jugador) {
-        super("Torre", id, jugador);
+        super(FICHA.TORRE, id, jugador);
     }
 
     public  HashMap<Integer, ArrayList<Integer>> verificarMovimientosPosibles(Tablero tablero){

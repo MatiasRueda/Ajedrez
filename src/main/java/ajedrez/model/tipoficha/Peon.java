@@ -3,6 +3,7 @@ package ajedrez.model.tipoficha;
 import java.util.HashMap;
 import java.util.ArrayList;
 
+import ajedrez.model.FICHA;
 import ajedrez.model.JUGADOR;
 import ajedrez.model.Tablero;
 import ajedrez.model.publisher.Ficha;
@@ -19,7 +20,7 @@ public class Peon extends Ficha{
     private final int DIRECCION_Y = (this.getJugador() == JUGADOR.UNO)?  DIRECCION_Y_JUGADOR_UNO : DIRECCION_Y_JUGADOR_DOS;
 
     public Peon(String id, JUGADOR jugador) {
-        super("Peon", id, jugador);
+        super(FICHA.PEON, id, jugador);
         this.tipoDeMovimiento = new MovimientoPeon(this, RANGO_PRIMER_MOVIMIENTO);
     }
 

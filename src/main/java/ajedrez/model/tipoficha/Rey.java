@@ -3,6 +3,7 @@ package ajedrez.model.tipoficha;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import ajedrez.model.FICHA;
 import ajedrez.model.JUGADOR;
 import ajedrez.model.Tablero;
 import ajedrez.model.publisher.Ficha;
@@ -16,7 +17,7 @@ public class Rey extends Ficha{
     private Boolean primerMovimiento = true;
 
     public Rey (String id, JUGADOR jugador) {
-        super("Rey", id, jugador);
+        super(FICHA.REY, id, jugador);
     }
 
     public Boolean getPrimerMovimiento() {

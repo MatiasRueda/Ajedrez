@@ -96,11 +96,11 @@ public class Juego {
         return this.tablero.getNombresFichasTablero();
     }
 
-    public void agregarFicha(String nombreFicha, int fila, int columna) {
+    public void agregarFicha(FICHA tipoFicha, int fila, int columna) {
         Ficha ficha = tablero.getFicha(fila, columna);
         Suscriber registro = ficha.getSuscriber();
         FabricaDeFichas fabrica = new FabricaDeFichas();
-        Ficha fichaCreada = fabrica.getFicha(nombreFicha, ficha.getId(), ficha.getJugador());
+        Ficha fichaCreada = fabrica.getFicha(tipoFicha, ficha.getId(), ficha.getJugador());
         fichaCreada.addsuscriber(registro);
         this.turnoUsuario.getTurnoActual().agregarFichaAlasDisponibles(fichaCreada);
         this.tablero.sacarFicha(ficha);

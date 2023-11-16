@@ -1,5 +1,6 @@
 package ajedrez.controller;
 
+import ajedrez.model.FICHA;
 import ajedrez.view.ImagenBoton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,10 +24,23 @@ public class Fichas {
 
     @FXML
     private Button botonCaballo;
+
+    private FICHA getFicha(String opcion) {
+        if (opcion.toUpperCase().equals(FICHA.PEON.toString())) 
+            return FICHA.PEON;
+        else if (opcion.toUpperCase().equals(FICHA.CABALLO.toString())) 
+            return FICHA.CABALLO;
+        else if (opcion.toUpperCase().equals(FICHA.AFIL.toString())) 
+            return FICHA.AFIL;
+        else if (opcion.toUpperCase().equals(FICHA.REINA.toString())) 
+            return FICHA.REINA;
+        else 
+            return FICHA.TORRE;
+    }
     
 
-    public String getOpcion() {
-        return this.opcion;
+    public FICHA getOpcion() {
+        return getFicha(this.opcion);
     }
 
     public void agregarImagenes() {

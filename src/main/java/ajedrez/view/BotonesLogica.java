@@ -2,6 +2,7 @@ package ajedrez.view;
 
 import java.io.IOException;
 
+import ajedrez.model.FICHA;
 import ajedrez.model.JUGADOR;
 import ajedrez.controller.Escenas;
 import ajedrez.controller.Fichas;
@@ -90,10 +91,10 @@ public class BotonesLogica {
         op.setColor(color);
         op.agregarImagenes();
         escenas.mostrarStage(root);
-        String opcion = op.getOpcion();
+        FICHA opcion = op.getOpcion();
         this.juego.agregarFicha(opcion, filaCambiar, columnaCambiar);
         this.botonElegido.setGraphic(null);
-        imagenBtn.colocarImagen(opcion, color, btn, 80);
+        imagenBtn.colocarImagen(opcion.toString().toLowerCase(), color, btn, 80);
     }
 
 

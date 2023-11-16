@@ -4,11 +4,12 @@ import java.util.HashMap;
 import java.util.ArrayList;
 
 import ajedrez.model.JUGADOR;
+import ajedrez.model.FICHA;
 import ajedrez.model.Tablero;
 import ajedrez.model.sucriber.Suscriber;
 
 public abstract class Ficha implements Publisher{
-    private String nombre;
+    private FICHA ficha;
     private String id;
     private JUGADOR jugador;
     private Suscriber suscriber;
@@ -16,8 +17,8 @@ public abstract class Ficha implements Publisher{
     private HashMap<Integer, ArrayList<Integer>>  movimientosPosibles;
     private final int FILA_FINAL;
 
-    public Ficha(String nombre, String id, JUGADOR jugador) {
-        this.nombre = nombre;
+    public Ficha(FICHA ficha, String id, JUGADOR jugador) {
+        this.ficha = ficha;
         this.id = id;
         this.jugador = jugador;
         this.FILA_FINAL = (this.jugador == JUGADOR.UNO)? 7 : 0;
@@ -36,7 +37,7 @@ public abstract class Ficha implements Publisher{
     }
 
     public String getNombre(){
-        return this.nombre;
+        return this.ficha.toString();
     }
     
     public String getId() {

@@ -12,11 +12,11 @@ import ajedrez.App;
 public class Escenas {
     private Stage primaryStage;
 
-    public FXMLLoader getFXML(String fxml) {
-        return new FXMLLoader(App.class.getResource("/ajedrez/Escenarios/"+ fxml + ".fxml"));
+    public FXMLLoader getFXML(ESCENA fxml) {
+        return new FXMLLoader(App.class.getResource("/ajedrez/Escenarios/"+ fxml.toString().toLowerCase() + ".fxml"));
     }
 
-    private Parent loadFXML(String fxml) throws IOException {
+    private Parent loadFXML(ESCENA fxml) throws IOException {
         FXMLLoader fxmlLoader = this.getFXML(fxml);
         return fxmlLoader.load();
     }
@@ -34,7 +34,7 @@ public class Escenas {
         stage.showAndWait();
     }
 
-    public Stage cambiarEscena(String escena) throws IOException{
+    public Stage cambiarEscena(ESCENA escena) throws IOException{
         Parent root = loadFXML(escena);
         Scene nuevaEscena = new Scene(root);
         this.primaryStage.setScene(nuevaEscena);

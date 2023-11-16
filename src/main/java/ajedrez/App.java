@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import java.io.IOException;
 
+import ajedrez.controller.ESCENA;
 import ajedrez.controller.Menu;
 import ajedrez.view.Musica;
 
@@ -15,7 +16,7 @@ public class App extends Application {
         stage.setTitle("Ajedrez");
         stage.setResizable(false);
         Menu.escenas.setStage(stage);
-        Stage menu = Menu.escenas.cambiarEscena("menu");
+        Stage menu = Menu.escenas.cambiarEscena(ESCENA.MENU);
         menu.show();
         musica.musicaIntroPlay();
     }

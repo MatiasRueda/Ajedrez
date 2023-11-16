@@ -44,7 +44,7 @@ public class Intro {
     private void animacionEscena2() {
         transition(presentacion, 1, 0).setOnFinished(e3 -> {
             try {
-            escenas.cambiarEscena("menu");
+            escenas.cambiarEscena(ESCENA.MENU);
             } catch (IOException error) {
                 System.out.println(error);
             }

@@ -22,6 +22,6 @@ public class Menu {
     @FXML
     void clickJugar(ActionEvent event) throws IOException {
         Musica.stopMusicaFondo();
-        escenas.cambiarEscena("tablero");
+        escenas.cambiarEscena(ESCENA.TABLERO);
     }
 }

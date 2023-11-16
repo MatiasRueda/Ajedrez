@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import ajedrez.model.FICHA;
 import ajedrez.model.JUGADOR;
+import ajedrez.controller.ESCENA;
 import ajedrez.controller.Escenas;
 import ajedrez.controller.Fichas;
 import ajedrez.controller.Ganador;
@@ -85,7 +86,7 @@ public class BotonesLogica {
  */
     private void graficoCambioPeon(Button btn) throws IOException {
         String color = (this.juego.getTurnoUsuario().getJugador() == JUGADOR.UNO)? "blanco" : "negro";
-        FXMLLoader fxmlLoader = escenas.getFXML("fichas");
+        FXMLLoader fxmlLoader = escenas.getFXML(ESCENA.FICHAS);
         Parent root = fxmlLoader.load();
         Fichas op = fxmlLoader.getController();
         op.setColor(color);
@@ -131,7 +132,7 @@ public class BotonesLogica {
  */
     private void cargarSiguienteEscena() throws IOException {
         String numeroJugador = this.juego.getTurnoUsuario().getJugador().toString();
-        FXMLLoader fxmlLoader = escenas.getFXML("ganador");
+        FXMLLoader fxmlLoader = escenas.getFXML(ESCENA.GANADOR);
         Parent root = fxmlLoader.load();
         Ganador op = fxmlLoader.getController();
         op.setMensaje(numeroJugador);
@@ -139,12 +140,12 @@ public class BotonesLogica {
         String opcion = op.getOpcion();
         if (opcion.equals("Reiniciar")) {
             Musica.stopMusicaFondo();
-            escenas.cambiarEscena("tablero");
+            escenas.cambiarEscena(ESCENA.TABLERO);
             return;
         }
         Musica.stopMusicaFondo();
         musica.musicaIntroPlay();
-        escenas.cambiarEscena("menu");
+        escenas.cambiarEscena(ESCENA.MENU);
     }
 
 /*  Se encarga de la logica de los botones, si la eleccion ya fue realizada entonces

@@ -22,7 +22,8 @@ public class BotonesEstilo {
         btn.setMinWidth(WIDTH_HEIGHT_BOTON);
         String colorCasillero = (casillero)? "white" : "green";
         btn.setStyle("-fx-background-color: "+ colorCasillero);
-        if (nombreDeLaFicha.equals("")) return;
+        if (nombreDeLaFicha.equals("")) 
+            return;
         imagenBtn.colocarImagen(nombreDeLaFicha, color, btn, TAMANIO_IMAGEN);
     }
 

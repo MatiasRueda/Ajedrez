@@ -54,24 +54,25 @@ public class Caballo extends Ficha{
     }
 
     private void movimientos(int filPosible, int colPosible) {
-        if (this.tablero.posicionFueraDelTablero(filPosible, colPosible)) return;
+        if (this.tablero.posicionFueraDelTablero(filPosible, colPosible)) 
+            return;
 
         if (!this.tablero.posicionOcupada(filPosible, colPosible) ) {
-            if(!this.movimientos.containsKey(filPosible)) {this.movimientos.put(filPosible, new ArrayList<>());}
+            if(!this.movimientos.containsKey(filPosible)) 
+                this.movimientos.put(filPosible, new ArrayList<>());
             this.movimientos.get(filPosible).add(colPosible);
         }
 
-        if (this.tablero.posicionOcupada(filPosible, colPosible)) {
+        if (this.tablero.posicionOcupada(filPosible, colPosible)) 
             posibleFichaRival(filPosible, colPosible);
-        }
 
     }
 
     private void posibleFichaRival(int filPosible, int colPosible){
         if (this.tablero.getFicha(filPosible, colPosible).getNumJugador() != getNumJugador()) {
-            if(!this.movimientos.containsKey(filPosible)) {this.movimientos.put(filPosible, new ArrayList<>());}
+            if(!this.movimientos.containsKey(filPosible))
+                this.movimientos.put(filPosible, new ArrayList<>());
             this.movimientos.get(filPosible).add(colPosible);
         }
     }
-
 }

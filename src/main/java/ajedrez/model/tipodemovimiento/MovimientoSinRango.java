@@ -20,16 +20,19 @@ public class MovimientoSinRango implements Movible {
         var colPosible = ubicacion.get(1) + x;
         if (tablero.posicionFueraDelTablero(filPosible, colPosible)) return;
         while (!tablero.posicionOcupada(filPosible, colPosible)) {
-            if(!movimientos.containsKey(filPosible)) movimientos.put(filPosible, new ArrayList<>());
+            if(!movimientos.containsKey(filPosible)) 
+                movimientos.put(filPosible, new ArrayList<>());
             movimientos.get(filPosible).add(colPosible);
             filPosible += y;
             colPosible += x;
-            if (tablero.posicionFueraDelTablero(filPosible, colPosible)) {return;}
+            if (tablero.posicionFueraDelTablero(filPosible, colPosible))
+                return;
         }
 
         var fichaElegida = tablero.getFicha(filPosible, colPosible);
         if (fichaElegida.getNumJugador() != this.ficha.getNumJugador()) {
-            if(!movimientos.containsKey(filPosible)) movimientos.put(filPosible, new ArrayList<>());
+            if(!movimientos.containsKey(filPosible)) 
+                movimientos.put(filPosible, new ArrayList<>());
             movimientos.get(filPosible).add(colPosible);
         }
     }

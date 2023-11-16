@@ -20,30 +20,34 @@ public class MovimientoPeon implements Movible{
         var ubicacion = tablero.ubicacionActualFicha(this.ficha);  
         var filPosible = ubicacion.get(0) + y;
         var colPosible = ubicacion.get(1) + x;
-        if (tablero.posicionFueraDelTablero(filPosible, colPosible)) return;
+        if (tablero.posicionFueraDelTablero(filPosible, colPosible)) 
+            return;
 
         if ((y != 0 && x != 0) && tablero.posicionOcupada(filPosible, colPosible)) {
             var fichaElegida = tablero.getFicha(filPosible, colPosible);
             if (fichaElegida.getNumJugador() != this.ficha.getNumJugador()) {
-                if(!movimientos.containsKey(filPosible)) movimientos.put(filPosible, new ArrayList<>());
-                    movimientos.get(filPosible).add(colPosible);
+                if(!movimientos.containsKey(filPosible)) 
+                    movimientos.put(filPosible, new ArrayList<>());
+                movimientos.get(filPosible).add(colPosible);
             }
             return;
         }
 
-        if( (y != 0 && x != 0) && !tablero.posicionOcupada(filPosible, colPosible)) {
+        if( (y != 0 && x != 0) && !tablero.posicionOcupada(filPosible, colPosible))
             return;
-        }
 
-        if (tablero.posicionOcupada(filPosible, colPosible)) return;
+        if (tablero.posicionOcupada(filPosible, colPosible))
+            return;
         var casillasAVerificar = this.rango;
         while (!tablero.posicionOcupada(filPosible, colPosible)) {
-            if(!movimientos.containsKey(filPosible)) movimientos.put(filPosible, new ArrayList<>());
+            if(!movimientos.containsKey(filPosible)) 
+                movimientos.put(filPosible, new ArrayList<>());
             movimientos.get(filPosible).add(colPosible);
             filPosible += y;
             colPosible += x;
             casillasAVerificar -= 1;
-            if (tablero.posicionFueraDelTablero(filPosible, colPosible) || casillasAVerificar == 0) return;
+            if (tablero.posicionFueraDelTablero(filPosible, colPosible) || casillasAVerificar == 0) 
+                return;
         }
         
     }

@@ -9,8 +9,7 @@ public class Tablero {
     private final int CANT_FILAS = 8;
     private final int CANT_COLUMNAS = 8;
     private ArrayList<ArrayList<Casilla>> casillas;
-    private HashMap<String, ArrayList<Integer>> ubicacionFichas = new HashMap<String, ArrayList<Integer>>();
-
+    private HashMap<String, ArrayList<Integer>> ubicacionFichas = new HashMap<>();
 
     public void llenarTablero() {
         this.casillas = new ArrayList<>(); 

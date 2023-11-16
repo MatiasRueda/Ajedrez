@@ -23,18 +23,21 @@ public class MovimientoConRango implements Movible {
         var casillasAVerificar = this.rango;
         if (tablero.posicionFueraDelTablero(filPosible, colPosible)) return;
         while (!tablero.posicionOcupada(filPosible, colPosible)) {
-            if(!movimientos.containsKey(filPosible)) movimientos.put(filPosible, new ArrayList<>());
+            if(!movimientos.containsKey(filPosible)) 
+                movimientos.put(filPosible, new ArrayList<>());
             movimientos.get(filPosible).add(colPosible);
             filPosible += y;
             colPosible += x;
             casillasAVerificar -= 1;
-            if (tablero.posicionFueraDelTablero(filPosible, colPosible) || casillasAVerificar == 0) return;
+            if (tablero.posicionFueraDelTablero(filPosible, colPosible) || casillasAVerificar == 0)
+                return;
         }
 
         //verificar que la que sigue no sea un enemigo
         var fichaElegida = tablero.getFicha(filPosible, colPosible);
         if (fichaElegida.getNumJugador() != this.ficha.getNumJugador()) {
-            if(!movimientos.containsKey(filPosible)) {movimientos.put(filPosible, new ArrayList<>());}
+            if(!movimientos.containsKey(filPosible)) 
+                movimientos.put(filPosible, new ArrayList<>());
             movimientos.get(filPosible).add(colPosible);
         }
     }

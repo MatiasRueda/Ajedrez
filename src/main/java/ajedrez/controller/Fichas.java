@@ -45,7 +45,6 @@ public class Fichas {
         Button boton = ((Button)event.getSource());
         this.opcion = boton.getText();
         Stage stage = (Stage) boton.getScene().getWindow();
-        System.out.println(this.opcion);
         stage.close();
     }
 }

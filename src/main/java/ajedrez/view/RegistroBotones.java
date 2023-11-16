@@ -11,11 +11,13 @@ public class RegistroBotones {
     private HashMap<Integer, ArrayList<Integer>> posicionesValidas;
 
     public void add(int fila, int columna, Button btn, String color) {
-        if (!this.ubicacionBotones.containsKey(fila)) this.ubicacionBotones.put(fila, new HashMap<>());
+        if (!this.ubicacionBotones.containsKey(fila)) 
+            this.ubicacionBotones.put(fila, new HashMap<>());
         var columnas = this.ubicacionBotones.get(fila);
         columnas.put(columna, btn);
 
-        if (!this.coloresOriginales.containsKey(fila)) this.coloresOriginales.put(fila, new HashMap<>());
+        if (!this.coloresOriginales.containsKey(fila)) 
+            this.coloresOriginales.put(fila, new HashMap<>());
         var columnasColores = this.coloresOriginales.get(fila);
         columnasColores.put(columna, color);
     }

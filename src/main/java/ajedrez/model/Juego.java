@@ -6,7 +6,6 @@ import java.util.HashMap;
 import ajedrez.model.publisher.Ficha;
 import ajedrez.model.sucriber.Suscriber;
 
-
 public class Juego {
     private Tablero tablero = new Tablero();
     private TurnoUsuario turnoUsuario;

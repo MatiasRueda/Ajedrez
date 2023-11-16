@@ -48,20 +48,27 @@ public class Torre extends Ficha{
     }
 
     private Boolean torreCumpleRequisitosEnroque(int fila, int columna) {
-        if (!this.primerMovimiento) return false;
-        if ((fila != FILA_REY) || (columna != COLUMNA_REY)) return false;
+        if (!this.primerMovimiento) 
+            return false;
+        if ((fila != FILA_REY) || (columna != COLUMNA_REY)) 
+            return false;
         return true;
     }
 
     private Boolean reyCumpleRequisitosEnroque(Tablero tablero, HashMap<Integer, ArrayList<Integer>> movimientos) {
         var fichaRey = tablero.getFicha(this.FILA_REY, 4);
-        if (fichaRey == null) return false;
-        if (!(fichaRey.getNombre().equals("Rey")) || fichaRey.getNumJugador() != getNumJugador()) return false;
-        if (!movimientos.containsKey(this.FILA_REY) || !((Rey)fichaRey).getPrimerMovimiento()) return false;
+        if (fichaRey == null) 
+            return false;
+        if (!(fichaRey.getNombre().equals("Rey")) || fichaRey.getNumJugador() != getNumJugador()) 
+            return false;
+        if (!movimientos.containsKey(this.FILA_REY) || !((Rey)fichaRey).getPrimerMovimiento()) 
+            return false;
         var posicionActual = tablero.ubicacionActualFicha(this);
         int columnaActual = posicionActual.get(1);
-        if (columnaActual == 0 && movimientos.get(this.FILA_REY).size() == 3) return true;
-        if (columnaActual == 7 && movimientos.get(this.FILA_REY).size() == 2) return true;
+        if (columnaActual == 0 && movimientos.get(this.FILA_REY).size() == 3) 
+            return true;
+        if (columnaActual == 7 && movimientos.get(this.FILA_REY).size() == 2) 
+            return true;
         return false;
     }
 

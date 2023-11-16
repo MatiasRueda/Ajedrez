@@ -41,7 +41,8 @@ public class BotonesLogica {
     private void eleccion(ActionEvent event, Button btn) {
         columnaEleccion = GridPane.getColumnIndex((Button)event.getSource());
         filaEleccion = GridPane.getRowIndex((Button)event.getSource());
-        if (!this.juego.eleccionFicha(filaEleccion, columnaEleccion)) return;
+        if (!this.juego.eleccionFicha(filaEleccion, columnaEleccion)) 
+            return;
         this.registroBtn.setPosicionesValidas(this.juego.getMovimientosPosibles());
         this.registroBtn.colorearPosiciones();
         this.eleccionRealizada = true;

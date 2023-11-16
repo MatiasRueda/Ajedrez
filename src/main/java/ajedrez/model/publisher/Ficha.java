@@ -32,7 +32,7 @@ public abstract class Ficha implements Publisher{
         this.movimientosPosibles = movimientos;
     }
 
-    public int getFILA_FINAL() {
+    public int getUltimaFila() {
         return this.FILA_FINAL;
     }
 

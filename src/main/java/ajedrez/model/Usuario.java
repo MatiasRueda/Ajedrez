@@ -65,7 +65,7 @@ public class Usuario {
         int noHayMovimientos = 0;
         for (Ficha ficha : this.fichasDisponibles.values()) {
             var movimientos = ficha.verificarMovimientosPosibles(this.tablero);
-            if (ficha.getNombre().equals("Rey")) {
+            if (ficha.getNombre() == FICHA.REY.toString()) {
                 control.setMovimientosPosibles(movimientos);
                 movimientos = control.posibleJaque(rival, ficha);
             }

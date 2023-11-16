@@ -36,35 +36,56 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox prefHeight="865.0" prefWidth="1015.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ajedrez.controller.Tablero">
+<VBox alignment="CENTER_LEFT" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ajedrez.controller.Tablero">
    <children>
-      <Label fx:id="turnoJugador" alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="1044.0" style="-fx-background-color: skyblue;" text="Label" />
-      <HBox fx:id="hboxID" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="814.0" prefWidth="1015.0">
+      <StackPane minHeight="80.0" style="-fx-background-color: skyblue;" VBox.vgrow="ALWAYS">
          <children>
-            <Pane prefHeight="800.0" prefWidth="210.0">
+            <Label fx:id="turnoJugador" alignment="CENTER" contentDisplay="CENTER" text="Label">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
+      <HBox fx:id="hboxID" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="820.0" minWidth="-Infinity" VBox.vgrow="ALWAYS">
+         <children>
+            <VBox alignment="CENTER_LEFT" minWidth="250.0" HBox.hgrow="ALWAYS">
                <children>
-                  <TilePane fx:id="registroUNO" layoutY="57.0" prefHeight="342.0" prefWidth="200.0" style="-fx-background-color: grey;" />
-                  <TilePane fx:id="registroDOS" layoutY="464.0" prefHeight="350.0" prefWidth="200.0" style="-fx-background-color: grey;" />
-                  <Label layoutX="44.0" layoutY="413.0" prefHeight="34.0" prefWidth="142.0" text="JUGADOR DOS" />
-                  <Label layoutX="44.0" layoutY="14.0" prefHeight="34.0" prefWidth="142.0" text="JUGADOR UNO" />
+                  <StackPane minHeight="50.0">
+                     <children>
+                        <Label text="JUGADOR UNO" />
+                     </children>
+                  </StackPane>
+                  <TilePane fx:id="registroUNO" minHeight="350.0" style="-fx-background-color: grey;" VBox.vgrow="ALWAYS" />
+                  <StackPane minHeight="50.0">
+                     <children>
+                        <Label text="JUGADOR DOS" />
+                     </children>
+                  </StackPane>
+                  <TilePane fx:id="registroDOS" minHeight="350.0" style="-fx-background-color: grey;" />
                </children>
-            </Pane>
-            <GridPane fx:id="gridPaneID" gridLinesVisible="true" hgap="2.0" vgap="2.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-            </GridPane>
+            </VBox>
+            <StackPane minWidth="1050.0">
+               <children>
+                  <GridPane fx:id="gridPaneID" alignment="CENTER" gridLinesVisible="true" hgap="2.0" vgap="2.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </children>
+            </StackPane>
          </children>
       </HBox>
    </children>

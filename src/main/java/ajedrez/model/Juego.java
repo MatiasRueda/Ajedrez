@@ -52,7 +52,7 @@ public class Juego {
         if (this.fichaElegida != null && this.fichaMover.getNombre().equals("Torre") && this.fichaElegida.getNombre().equals("Rey")) {
             if (this.fichaMover.getJugador() == this.fichaElegida.getJugador()) this.movimientoEnroque = true;
         }
-        if (this.fichaMover.getNombre().equals("Peon") && fila == this.fichaMover.getFILA_FINAL()) {
+        if (this.fichaMover.getNombre() == FICHA.PEON.toString() && fila == this.fichaMover.getUltimaFila()) {
             this.cambioPeon = true;
         }
         var jugando = this.turnoUsuario.getTurnoActual();

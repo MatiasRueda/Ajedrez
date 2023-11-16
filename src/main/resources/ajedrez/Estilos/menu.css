@@ -1,0 +1,21 @@
+#titulo {
+    -fx-border-color: black;
+    -fx-border-width: 0 0 2 0;
+}
+
+#opciones {
+    -fx-border-color: black;
+    -fx-border-width: 2 2 2 2;
+}
+
+#jugar {
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-width: 1.5;
+}
+
+#jugar:hover {
+    -fx-text-fill: white;
+    -fx-background-color: black;
+    -fx-border-color: black;
+}

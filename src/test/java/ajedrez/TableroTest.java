@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import ajedrez.App.NumJugador;
+import ajedrez.model.JUGADOR;
 import ajedrez.model.Tablero;
 import ajedrez.model.tipoficha.Torre;
 
@@ -39,7 +39,7 @@ public class TableroTest {
     @Test
     public void sePuedeColocarEnTodasLasPosicionesTest() {
         for (int i = 0; i < CANT_FILAS; i++) {
-            var ficha = new Torre("1", NumJugador.UNO);
+            var ficha = new Torre("1", JUGADOR.UNO);
             for (int j = 0; j < CANT_COLUMNAS; j++) {
                 assertFalse(this.tablero.posicionOcupada(i, j));
                 assertNull(this.tablero.colocarFicha(ficha, i, j));
@@ -63,7 +63,7 @@ public class TableroTest {
 
     @Test
     public void sePuedeObtenerFichaTest() {
-        var ficha = new Torre("1",NumJugador.UNO);
+        var ficha = new Torre("1",JUGADOR.UNO);
         assertNull(this.tablero.colocarFicha(ficha, 0, 0));
         assertNotNull(this.tablero.getFicha(0, 0));
         var fichaElegida = this.tablero.getFicha(0, 0);
@@ -73,14 +73,14 @@ public class TableroTest {
     @Test
     public void colocarFichaTest() {
         assertNull(this.tablero.getFicha(0, 0));
-        var ficha = new Torre("1",NumJugador.UNO);
+        var ficha = new Torre("1",JUGADOR.UNO);
         assertNull(this.tablero.colocarFicha(ficha, 0, 0));
         assertTrue(this.tablero.estaLaFicha(ficha));
     }
     
     @Test
     public void sacarFichaTest() {
-        var ficha = new Torre("1",NumJugador.UNO);
+        var ficha = new Torre("1",JUGADOR.UNO);
         assertFalse(this.tablero.sacarFicha(ficha));
         assertNull(this.tablero.colocarFicha(ficha, 0, 0));
         assertTrue(this.tablero.estaLaFicha(ficha));
@@ -90,7 +90,7 @@ public class TableroTest {
 
     @Test
     public void saberUbicacionDeFicha() {
-        var ficha = new Torre("1",NumJugador.UNO);
+        var ficha = new Torre("1",JUGADOR.UNO);
         assertNull(this.tablero.colocarFicha(ficha, 0, 0));
         assertNotNull(this.tablero.ubicacionActualFicha(ficha));
         var ubicacion = this.tablero.ubicacionActualFicha(ficha);
@@ -112,9 +112,9 @@ public class TableroTest {
 
     @Test
     public void NoSePuedeSaberUbicacionDeFicha() {
-        var ficha = new Torre("1",NumJugador.UNO);
+        var ficha = new Torre("1",JUGADOR.UNO);
         assertNull(this.tablero.ubicacionActualFicha(ficha));
-        var ficha2 = new Torre("3",NumJugador.DOS);
+        var ficha2 = new Torre("3",JUGADOR.DOS);
         assertNull(this.tablero.ubicacionActualFicha(ficha2));
     }
 

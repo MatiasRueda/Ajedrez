@@ -3,7 +3,7 @@ package ajedrez.model.tipoficha;
 import java.util.HashMap;
 import java.util.ArrayList;
 
-import ajedrez.App.NumJugador;
+import ajedrez.model.JUGADOR;
 import ajedrez.model.Tablero;
 import ajedrez.model.publisher.Ficha;
 import ajedrez.model.tipodemovimiento.Movible;
@@ -14,10 +14,10 @@ public class Torre extends Ficha{
     private Boolean primerMovimiento = true;
     private Movible tipoDeMovimiento = new MovimientoSinRango(this);
     private final int COLUMNA_REY = 4;
-    private final int FILA_REY = (this.getNumJugador() == NumJugador.UNO)?  0 : 7;
+    private final int FILA_REY = (this.getJugador() == JUGADOR.UNO)?  0 : 7;
 
-    public Torre (String id, NumJugador numJugador) {
-        super("Torre", id, numJugador);
+    public Torre (String id, JUGADOR jugador) {
+        super("Torre", id, jugador);
     }
 
     public  HashMap<Integer, ArrayList<Integer>> verificarMovimientosPosibles(Tablero tablero){
@@ -59,7 +59,7 @@ public class Torre extends Ficha{
         var fichaRey = tablero.getFicha(this.FILA_REY, 4);
         if (fichaRey == null) 
             return false;
-        if (!(fichaRey.getNombre().equals("Rey")) || fichaRey.getNumJugador() != getNumJugador()) 
+        if (!(fichaRey.getNombre().equals("Rey")) || fichaRey.getJugador() != this.getJugador()) 
             return false;
         if (!movimientos.containsKey(this.FILA_REY) || !((Rey)fichaRey).getPrimerMovimiento()) 
             return false;

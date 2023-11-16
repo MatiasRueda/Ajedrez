@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import ajedrez.App.NumJugador;
+import ajedrez.model.JUGADOR;
 import ajedrez.model.Juego;
 
 public class JuegoTest {
@@ -17,7 +17,7 @@ public class JuegoTest {
 
     @Test
     public void comienzoJuegoTest(){
-        assertEquals( NumJugador.UNO, this.juego.getTurnoUsuario().getNumJugador());
+        assertEquals(JUGADOR.UNO, this.juego.getTurnoUsuario().getJugador());
     }
 
     @Test
@@ -63,25 +63,25 @@ public class JuegoTest {
 
     @Test
     public void seRespetanLosTurnosTest(){
-        assertEquals( NumJugador.UNO, this.juego.getTurnoUsuario().getNumJugador());
+        assertEquals(JUGADOR.UNO, this.juego.getTurnoUsuario().getJugador());
         assertTrue(this.juego.eleccionFicha(1, 1));
         assertTrue(this.juego.moverFicha(3, 1));
         this.juego.siguienteTurno();
-        assertEquals( NumJugador.DOS, this.juego.getTurnoUsuario().getNumJugador());
+        assertEquals(JUGADOR.DOS, this.juego.getTurnoUsuario().getJugador());
         assertTrue(this.juego.eleccionFicha(6, 6));
         assertTrue(this.juego.moverFicha(4, 6));
         this.juego.siguienteTurno();
-        assertEquals( NumJugador.UNO, this.juego.getTurnoUsuario().getNumJugador());
+        assertEquals(JUGADOR.UNO, this.juego.getTurnoUsuario().getJugador());
     }
     
     @Test
     public void movimientoInvalidoNoPasaTurnoTest(){
-        assertEquals( NumJugador.UNO, this.juego.getTurnoUsuario().getNumJugador());
+        assertEquals(JUGADOR.UNO, this.juego.getTurnoUsuario().getJugador());
         assertFalse(this.juego.eleccionFicha(4, 1));
         assertFalse(this.juego.moverFicha(3, 1));
 
-        assertNotEquals( NumJugador.DOS, this.juego.getTurnoUsuario().getNumJugador());
-        assertEquals( NumJugador.UNO, this.juego.getTurnoUsuario().getNumJugador());
+        assertNotEquals(JUGADOR.DOS, this.juego.getTurnoUsuario().getJugador());
+        assertEquals(JUGADOR.UNO, this.juego.getTurnoUsuario().getJugador());
 
     }
     

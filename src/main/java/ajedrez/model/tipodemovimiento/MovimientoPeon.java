@@ -25,7 +25,7 @@ public class MovimientoPeon implements Movible{
 
         if ((y != 0 && x != 0) && tablero.posicionOcupada(filPosible, colPosible)) {
             var fichaElegida = tablero.getFicha(filPosible, colPosible);
-            if (fichaElegida.getNumJugador() != this.ficha.getNumJugador()) {
+            if (fichaElegida.getJugador() != this.ficha.getJugador()) {
                 if(!movimientos.containsKey(filPosible)) 
                     movimientos.put(filPosible, new ArrayList<>());
                 movimientos.get(filPosible).add(colPosible);

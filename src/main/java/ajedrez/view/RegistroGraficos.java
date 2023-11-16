@@ -1,6 +1,6 @@
 package ajedrez.view;
 
-import ajedrez.App.NumJugador;
+import ajedrez.model.JUGADOR;
 import ajedrez.model.Usuario;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -24,13 +24,13 @@ public class RegistroGraficos {
     }
 
     public void nuevoTurno(Usuario usuario) {
-        this.turno.setText("Es el turno jugador: " + usuario.getNumJugador().toString());
+        this.turno.setText("Es el turno jugador: " + usuario.getJugador().toString());
     }
 
     public void  verificarCapturas(Usuario usuario) {
-        var tilePane = (usuario.getNumJugador() == NumJugador.UNO)? panelUNO : panelDOS;
-        int longitud = (usuario.getNumJugador() == NumJugador.UNO)? longitudUNO: longitudDOS;
-        String color = (usuario.getNumJugador() == NumJugador.UNO)? "negro" : "blanco";
+        var tilePane = (usuario.getJugador() == JUGADOR.UNO)? panelUNO : panelDOS;
+        int longitud = (usuario.getJugador() == JUGADOR.UNO)? longitudUNO: longitudDOS;
+        String color = (usuario.getJugador() == JUGADOR.UNO)? "negro" : "blanco";
         if(usuario.cantidadCapturas() == longitud) return;
         var btn = new Button();
         btn.setMinHeight(WIDTH_HEIGHT_BOTON);
@@ -39,7 +39,7 @@ public class RegistroGraficos {
         btn.setMaxWidth(WIDTH_HEIGHT_BOTON);
         imagenBtn.colocarImagen(usuario.getUltimaCaptura().getNombre(), color, btn, TAMANIO_IMAGEN);
         tilePane.getChildren().add(btn);
-        if (usuario.getNumJugador() == NumJugador.UNO) {
+        if (usuario.getJugador() == JUGADOR.UNO) {
             longitudUNO++;
             return;
         }

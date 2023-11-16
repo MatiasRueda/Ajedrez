@@ -95,9 +95,10 @@ public class Tablero {
                 nombreYJugador.add(""); 
                 nombreYJugador.add(""); 
                 nombresFichas.add(nombreYJugador);   
-                continue;}
+                continue;
+            }
             nombreYJugador.add(casilleroActual.getFicha().getNombre());
-            nombreYJugador.add(casilleroActual.getFicha().getNumJugador().toString());    
+            nombreYJugador.add(casilleroActual.getFicha().getJugador().toString());    
             nombresFichas.add(nombreYJugador);    
         }
     }

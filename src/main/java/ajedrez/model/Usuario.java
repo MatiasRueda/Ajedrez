@@ -3,15 +3,13 @@ package ajedrez.model;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
-
-import ajedrez.App.NumJugador;
 import ajedrez.model.publisher.Ficha;
 import ajedrez.model.sucriber.RegistroFichas;
 
 public class Usuario {
     private RegistroFichas registro = new RegistroFichas();
     private FabricaDeFichas fabrica = new FabricaDeFichas();
-    private NumJugador numJugador;
+    private JUGADOR jugador;
     private Tablero tablero;
     private final int[] COLUMNA_PEON = {0, 1 , 2, 3, 4, 5, 6, 7};
     private final int[] COLUMNA_REINA = {3};
@@ -23,8 +21,8 @@ public class Usuario {
     private final String[] NOMBRE_DE_FICHAS = {"Peon", "Torre", "Caballo", "Afil", "Reina", "Rey"};
     private HashMap<String, Ficha> fichasDisponibles = new HashMap<>();
 
-    public Usuario(NumJugador numJugador, Tablero tablero) {
-        this.numJugador = numJugador;
+    public Usuario(JUGADOR jugador, Tablero tablero) {
+        this.jugador = jugador;
         this.tablero = tablero;
         agregarFichas();
     }
@@ -40,8 +38,8 @@ public class Usuario {
         return this.registro.reyCapturado();
     }
 
-    public NumJugador getNumJugador() {
-        return this.numJugador;
+    public JUGADOR getJugador() {
+        return this.jugador;
     }
 
     public int cantidadCapturas() {
@@ -116,11 +114,11 @@ public class Usuario {
 
     private void agregarPorCantidadDeFichas(String nombreFicha, int indice) {
         for (int indicePosicion = 0; indicePosicion < POSICION_FICHAS[indice].length; indicePosicion++){
-            Ficha ficha = this.fabrica.getFicha(nombreFicha, UUID.randomUUID().toString(), this.numJugador);
+            Ficha ficha = this.fabrica.getFicha(nombreFicha, UUID.randomUUID().toString(), this.jugador);
             ficha.addsuscriber(registro);
-            int filaElegida = (this.numJugador == NumJugador.UNO)? 0 : 7;
+            int filaElegida = (this.jugador == JUGADOR.UNO)? 0 : 7;
             if (nombreFicha.equals("Peon")) {
-                filaElegida = (this.numJugador == NumJugador.UNO)? 1: 6;
+                filaElegida = (this.jugador == JUGADOR.UNO)? 1: 6;
             }
             this.tablero.colocarFicha(ficha, filaElegida, POSICION_FICHAS[indice][indicePosicion]);
             this.fichasDisponibles.put(ficha.getId(), ficha);

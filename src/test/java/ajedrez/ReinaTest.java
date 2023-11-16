@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import ajedrez.App.NumJugador;
+import ajedrez.model.JUGADOR;
 import ajedrez.model.Tablero;
 import ajedrez.model.tipoficha.Reina;
 
@@ -20,7 +20,7 @@ public class ReinaTest {
 
     @Test
     public void correctosMovimientosReinaTest(){
-        var ficha = new Reina("1", NumJugador.UNO);
+        var ficha = new Reina("1", JUGADOR.UNO);
         assertEquals("Reina", ficha.getNombre());
         assertFalse(ficha.mover(0, 0, this.tablero));
         this.tablero.colocarFicha(ficha, 0, 0);

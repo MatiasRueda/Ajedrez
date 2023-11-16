@@ -2,7 +2,7 @@ package ajedrez.view;
 
 import java.io.IOException;
 
-import ajedrez.App.NumJugador;
+import ajedrez.model.JUGADOR;
 import ajedrez.controller.Escenas;
 import ajedrez.controller.Fichas;
 import ajedrez.controller.Ganador;
@@ -83,7 +83,7 @@ public class BotonesLogica {
 *   una escena con opciones de fichas y luego se agrega la imagen al peon
  */
     private void graficoCambioPeon(Button btn) throws IOException {
-        String color = (this.juego.getTurnoUsuario().getNumJugador() == NumJugador.UNO)? "blanco" : "negro";
+        String color = (this.juego.getTurnoUsuario().getJugador() == JUGADOR.UNO)? "blanco" : "negro";
         FXMLLoader fxmlLoader = escenas.getFXML("fichas");
         Parent root = fxmlLoader.load();
         Fichas op = fxmlLoader.getController();
@@ -129,7 +129,7 @@ public class BotonesLogica {
  *  de acuerdo a la opcion elegida
  */
     private void cargarSiguienteEscena() throws IOException {
-        String numeroJugador = this.juego.getTurnoUsuario().getNumJugador().toString();
+        String numeroJugador = this.juego.getTurnoUsuario().getJugador().toString();
         FXMLLoader fxmlLoader = escenas.getFXML("ganador");
         Parent root = fxmlLoader.load();
         Ganador op = fxmlLoader.getController();

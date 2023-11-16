@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import ajedrez.App.NumJugador;
+import ajedrez.model.JUGADOR;
 import ajedrez.model.Tablero;
 import ajedrez.model.tipoficha.Afil;
 
@@ -16,7 +16,7 @@ public class AfilTest {
     public void preparativo() {
         this.tablero = new Tablero();
         this.tablero.llenarTablero();
-        this.afil = new Afil("1", NumJugador.UNO);
+        this.afil = new Afil("1", JUGADOR.UNO);
     }
 
     @Test
@@ -62,7 +62,7 @@ public class AfilTest {
 
     @Test
     public void noSePuedePasarPorEncimaDeAliados(){
-        var ficha2 = new Afil("2", NumJugador.UNO);
+        var ficha2 = new Afil("2", JUGADOR.UNO);
         this.tablero.colocarFicha(this.afil, 0, 0);
         this.tablero.colocarFicha(ficha2, 1, 1);
         assertFalse(this.afil.mover(7, 7, this.tablero));
@@ -70,7 +70,7 @@ public class AfilTest {
 
     @Test
     public void noSePuedeMoverAlMismoLugarDeUnAliado(){
-        var ficha2 = new Afil("2", NumJugador.UNO);
+        var ficha2 = new Afil("2", JUGADOR.UNO);
         this.tablero.colocarFicha(this.afil, 0, 0);
         this.tablero.colocarFicha(ficha2, 1, 1);
         assertFalse(this.afil.mover(1, 1, this.tablero));
@@ -84,7 +84,7 @@ public class AfilTest {
 
     @Test
     public void noSePuedePasarPorEncimaDeEnemigos(){
-        var ficha2 = new Afil("2", NumJugador.DOS);
+        var ficha2 = new Afil("2", JUGADOR.DOS);
         this.tablero.colocarFicha(this.afil, 0, 0);
         this.tablero.colocarFicha(ficha2, 1, 1);
         assertFalse(this.afil.mover(7, 7, this.tablero));

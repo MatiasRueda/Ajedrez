@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import ajedrez.App.NumJugador;
+import ajedrez.model.JUGADOR;
 import ajedrez.model.Tablero;
 import ajedrez.model.tipoficha.Peon;
 import ajedrez.model.tipoficha.Rey;
@@ -18,7 +18,7 @@ public class TorreTest {
     public void preparativo() {
         this.tablero = new Tablero();
         this.tablero.llenarTablero();
-        this.torre = new Torre("1", NumJugador.UNO);
+        this.torre = new Torre("1", JUGADOR.UNO);
     }
 
     @Test
@@ -67,7 +67,7 @@ public class TorreTest {
 
     @Test
     public void noSePuedePasarPorEncimaDeAliados(){
-        var ficha2 = new Torre("2", NumJugador.UNO);
+        var ficha2 = new Torre("2", JUGADOR.UNO);
         this.tablero.colocarFicha(this.torre, 0, 0);
         this.tablero.colocarFicha(ficha2, 0, 1);
         assertFalse(this.torre.mover(0, 7, this.tablero));
@@ -75,7 +75,7 @@ public class TorreTest {
 
     @Test
     public void noSePuedeMoverAlMismoLugarDeUnAliado(){
-        var ficha2 = new Torre("2", NumJugador.UNO);
+        var ficha2 = new Torre("2", JUGADOR.UNO);
         this.tablero.colocarFicha(this.torre, 0, 0);
         this.tablero.colocarFicha(ficha2, 0, 1);
         assertFalse(this.torre.mover(0, 1, this.tablero));
@@ -83,14 +83,14 @@ public class TorreTest {
 
     @Test
     public void noSePuedeQuedarEnElLugar(){
-        this.torre = new Torre("1", NumJugador.UNO);
+        this.torre = new Torre("1", JUGADOR.UNO);
         this.tablero.colocarFicha(this.torre, 0, 0);
         assertFalse(this.torre.mover(0, 0, this.tablero));
     }
 
     @Test
     public void noSePuedePasarPorEncimaDeEnemigos(){
-        var ficha2 = new Torre("2", NumJugador.DOS);
+        var ficha2 = new Torre("2", JUGADOR.DOS);
         this.tablero.colocarFicha(this.torre, 0, 0);
         this.tablero.colocarFicha(ficha2, 0, 1);
         assertFalse(this.torre.mover(0, 7, this.tablero));
@@ -98,7 +98,7 @@ public class TorreTest {
 
     @Test
     public void enreoqueIzquierdaTest(){
-        var rey = new Rey("2", NumJugador.UNO);
+        var rey = new Rey("2", JUGADOR.UNO);
         this.tablero.colocarFicha(this.torre, 0, 0);
         this.tablero.colocarFicha(rey, 0, 4);
         assertTrue(this.torre.mover(0, 4, this.tablero));
@@ -116,7 +116,7 @@ public class TorreTest {
 
     @Test
     public void enreoqueDerechaTest(){
-        var rey = new Rey("2", NumJugador.UNO);
+        var rey = new Rey("2", JUGADOR.UNO);
         this.tablero.colocarFicha(this.torre, 0, 7);
         this.tablero.colocarFicha(rey, 0, 4);
         assertTrue(this.torre.mover(0, 4, this.tablero));
@@ -134,8 +134,8 @@ public class TorreTest {
 
     @Test
     public void noSePuedeEnroqueTest(){
-        var rey = new Rey("2", NumJugador.UNO);
-        var peon = new Peon("3", NumJugador.UNO);
+        var rey = new Rey("2", JUGADOR.UNO);
+        var peon = new Peon("3", JUGADOR.UNO);
         this.tablero.colocarFicha(this.torre, 0, 0);
         this.tablero.colocarFicha(rey, 0, 4);
         this.tablero.colocarFicha(peon, 0, 3);
@@ -145,7 +145,7 @@ public class TorreTest {
 
     @Test
     public void noSePuedeEnroqueSiNoEsPrimerMovimientoTest(){
-        var rey = new Rey("2", NumJugador.UNO);
+        var rey = new Rey("2", JUGADOR.UNO);
         this.tablero.colocarFicha(this.torre, 0, 0);
         this.tablero.colocarFicha(rey, 0, 4);
         assertTrue(this.torre.mover(0, 1, this.tablero));

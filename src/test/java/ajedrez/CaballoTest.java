@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import ajedrez.App.NumJugador;
+import ajedrez.model.JUGADOR;
 import ajedrez.model.Tablero;
 import ajedrez.model.sucriber.RegistroFichas;
 import ajedrez.model.tipoficha.Caballo;
@@ -19,7 +19,7 @@ public class CaballoTest {
     public void llamarFichasTest() {
         this.tablero = new Tablero();
         this.tablero.llenarTablero();
-        this.caballo = new Caballo("1", NumJugador.UNO);
+        this.caballo = new Caballo("1", JUGADOR.UNO);
     }
 
     @Test
@@ -33,7 +33,7 @@ public class CaballoTest {
 
     @Test
     public void sePuedeCapturarCorrectamenteTest(){
-        Caballo caballoRival = new Caballo("2", NumJugador.DOS);
+        Caballo caballoRival = new Caballo("2", JUGADOR.DOS);
         RegistroFichas registro = new RegistroFichas();
         this.caballo.addsuscriber(registro);
         tablero.colocarFicha(this.caballo, 2, 1);

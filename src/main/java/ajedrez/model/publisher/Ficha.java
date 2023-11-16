@@ -3,24 +3,24 @@ package ajedrez.model.publisher;
 import java.util.HashMap;
 import java.util.ArrayList;
 
-import ajedrez.App.NumJugador;
+import ajedrez.model.JUGADOR;
 import ajedrez.model.Tablero;
 import ajedrez.model.sucriber.Suscriber;
 
 public abstract class Ficha implements Publisher{
     private String nombre;
     private String id;
-    private NumJugador numJugador;
+    private JUGADOR jugador;
     private Suscriber suscriber;
     private Ficha captura = null;
     private HashMap<Integer, ArrayList<Integer>>  movimientosPosibles;
     private final int FILA_FINAL;
 
-    public Ficha(String nombre, String id, NumJugador numJugador) {
+    public Ficha(String nombre, String id, JUGADOR jugador) {
         this.nombre = nombre;
         this.id = id;
-        this.numJugador = numJugador;
-        this.FILA_FINAL = (this.numJugador == NumJugador.UNO)? 7 : 0;
+        this.jugador = jugador;
+        this.FILA_FINAL = (this.jugador == JUGADOR.UNO)? 7 : 0;
     }
 
     public HashMap<Integer, ArrayList<Integer>> getMovimientos() {
@@ -47,8 +47,8 @@ public abstract class Ficha implements Publisher{
         return this.suscriber;
     }
 
-    public NumJugador getNumJugador() {
-        return this.numJugador;
+    public JUGADOR getJugador() {
+        return this.jugador;
     }
 
     public void addsuscriber(Suscriber suscriber) {

@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import ajedrez.App.NumJugador;
+import ajedrez.model.JUGADOR;
 import ajedrez.model.Tablero;
 import ajedrez.model.sucriber.RegistroFichas;
 import ajedrez.model.tipoficha.Peon;
@@ -21,14 +21,14 @@ public class PeonTest {
     public void preparativo() {
         this.tablero = new Tablero();
         this.tablero.llenarTablero();
-        this.peon1 = new Peon("1", NumJugador.UNO);
-        this.peon2 = new Peon("2", NumJugador.DOS);   
-        this.peon3 = new Peon("3", NumJugador.DOS);
+        this.peon1 = new Peon("1", JUGADOR.UNO);
+        this.peon2 = new Peon("2", JUGADOR.DOS);   
+        this.peon3 = new Peon("3", JUGADOR.DOS);
     }
 
     @Test
     public void fichaInvocadaCorrectamenteTest(){
-        var ficha = new Peon("1", NumJugador.UNO);
+        var ficha = new Peon("1", JUGADOR.UNO);
         assertFalse(ficha.mover(0, 0, this.tablero));
         tablero.colocarFicha(ficha, 0, 0);
         assertFalse(ficha.mover(0, 1, this.tablero));

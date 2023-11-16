@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import ajedrez.App.NumJugador;
+import ajedrez.model.JUGADOR;
 import ajedrez.model.Tablero;
 import ajedrez.model.publisher.Ficha;
 import ajedrez.model.sucriber.RegistroFichas;
@@ -24,18 +24,18 @@ public class RegistroFichasTest {
         this.tablero = new Tablero();
         this.tablero.llenarTablero();
 
-        this.ficha = new Torre("1", NumJugador.UNO);
+        this.ficha = new Torre("1", JUGADOR.UNO);
         this.registro = new RegistroFichas();
         this.ficha.addsuscriber(registro);
 
-        this.ficha2 = new Torre("2", NumJugador.DOS);
+        this.ficha2 = new Torre("2", JUGADOR.DOS);
         this.registro2 = new RegistroFichas();
         this.ficha2.addsuscriber(registro2);
     }
 
     @Test
     public void fichasPuedenCapturar() {
-        var ficha3 = new Torre("3", NumJugador.DOS);
+        var ficha3 = new Torre("3", JUGADOR.DOS);
         ficha3.addsuscriber(registro2);
         tablero.colocarFicha(this.ficha, 0, 0);
         tablero.colocarFicha(this.ficha2, 0, 1);
@@ -50,7 +50,7 @@ public class RegistroFichasTest {
 
     @Test
     public void fichasNoPuedenCapturar() {
-        var ficha3 = new Torre("3", NumJugador.UNO);
+        var ficha3 = new Torre("3", JUGADOR.UNO);
         ficha3.addsuscriber(registro);
         tablero.colocarFicha(this.ficha, 0, 0);
         tablero.colocarFicha(ficha3, 0, 1);
@@ -61,7 +61,7 @@ public class RegistroFichasTest {
 
     @Test
     public void registroCapturaDelRey() {
-        var ficha3 = new Rey("3", NumJugador.DOS);
+        var ficha3 = new Rey("3", JUGADOR.DOS);
         ficha3.addsuscriber(this.registro2);
 
         this.tablero.colocarFicha(this.ficha, 0, 0);

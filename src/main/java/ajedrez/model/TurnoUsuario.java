@@ -1,6 +1,4 @@
 package ajedrez.model;
-
-import ajedrez.App.NumJugador;
 import ajedrez.model.publisher.Ficha;
 
 public class TurnoUsuario {
@@ -9,8 +7,8 @@ public class TurnoUsuario {
     private Usuario turnoActual;
 
     public TurnoUsuario(Tablero tablero) {
-        this.usuario1 = new Usuario(NumJugador.UNO, tablero);
-        this.usuario2 = new Usuario(NumJugador.DOS, tablero);
+        this.usuario1 = new Usuario(JUGADOR.UNO, tablero);
+        this.usuario2 = new Usuario(JUGADOR.DOS, tablero);
         this.turnoActual = this.usuario1;
     }
 
@@ -19,16 +17,16 @@ public class TurnoUsuario {
     }
 
     public Usuario getRival() {
-        return (this.turnoActual.getNumJugador() == NumJugador.UNO)? this.usuario2 : this.usuario1;
+        return (this.turnoActual.getJugador() == JUGADOR.UNO)? this.usuario2 : this.usuario1;
     }
 
     public Boolean fichaDelUsuario(Ficha ficha) {
         if(ficha == null) return false;
-        if(ficha.getNumJugador() != this.turnoActual.getNumJugador()) return false;
+        if(ficha.getJugador() != this.turnoActual.getJugador()) return false;
         return true;
     }
 
     public void siguienteTurno() {
-        this.turnoActual = (this.turnoActual.getNumJugador() == this.usuario1.getNumJugador())? this.usuario2 : this.usuario1;
+        this.turnoActual = (this.turnoActual.getJugador() == this.usuario1.getJugador())? this.usuario2 : this.usuario1;
     }
 }

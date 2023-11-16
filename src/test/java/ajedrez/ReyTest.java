@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import ajedrez.App.NumJugador;
+import ajedrez.model.JUGADOR;
 import ajedrez.model.Tablero;
 import ajedrez.model.tipoficha.Rey;
 
@@ -17,7 +17,7 @@ public class ReyTest {
     public void preparativo() {
         this.tablero = new Tablero();
         this.tablero.llenarTablero();
-        this.Rey = new Rey("1", NumJugador.UNO);
+        this.Rey = new Rey("1", JUGADOR.UNO);
     }
 
     @Test
@@ -43,7 +43,7 @@ public class ReyTest {
 
     @Test
     public void noSePuedeMoverAlMismoLugarDeUnAliado(){
-        var Rey2 = new Rey("2", NumJugador.UNO);
+        var Rey2 = new Rey("2", JUGADOR.UNO);
         this.tablero.colocarFicha(this.Rey, 0, 0);
         this.tablero.colocarFicha(Rey2, 0, 1);
         this.Rey.setMovimientos(this.Rey.verificarMovimientosPosibles(this.tablero));

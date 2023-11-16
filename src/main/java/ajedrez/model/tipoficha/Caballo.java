@@ -3,7 +3,7 @@ package ajedrez.model.tipoficha;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import ajedrez.App.NumJugador;
+import ajedrez.model.JUGADOR;
 import ajedrez.model.Tablero;
 import ajedrez.model.publisher.Ficha;
 
@@ -13,8 +13,8 @@ public class Caballo extends Ficha{
     private Tablero tablero;
 
     
-    public Caballo (String id, NumJugador numJugador) {
-        super("Caballo", id, numJugador);
+    public Caballo (String id, JUGADOR jugador) {
+        super("Caballo", id, jugador);
     }
     
     public  HashMap<Integer, ArrayList<Integer>> verificarMovimientosPosibles(Tablero tablero){
@@ -32,8 +32,8 @@ public class Caballo extends Ficha{
         var ubicacion = tablero.ubicacionActualFicha(this); // devuelve un ArrayList con fila(indice 0) y columna(indice 1) 
         var filaActual = ubicacion.get(0) + (y*2);
         var columnaActual = ubicacion.get(1) + (x*2);
-        if (tablero.posicionFueraDelTablero(filaActual, columnaActual)) return;
-
+        if (tablero.posicionFueraDelTablero(filaActual, columnaActual)) 
+            return;
         int z = x;
         x = y;
         y = z;
@@ -69,7 +69,7 @@ public class Caballo extends Ficha{
     }
 
     private void posibleFichaRival(int filPosible, int colPosible){
-        if (this.tablero.getFicha(filPosible, colPosible).getNumJugador() != getNumJugador()) {
+        if (this.tablero.getFicha(filPosible, colPosible).getJugador() != this.getJugador()) {
             if(!this.movimientos.containsKey(filPosible))
                 this.movimientos.put(filPosible, new ArrayList<>());
             this.movimientos.get(filPosible).add(colPosible);

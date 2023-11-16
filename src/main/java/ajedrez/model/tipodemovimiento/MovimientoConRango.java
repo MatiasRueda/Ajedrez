@@ -35,7 +35,7 @@ public class MovimientoConRango implements Movible {
 
         //verificar que la que sigue no sea un enemigo
         var fichaElegida = tablero.getFicha(filPosible, colPosible);
-        if (fichaElegida.getNumJugador() != this.ficha.getNumJugador()) {
+        if (fichaElegida.getJugador() != this.ficha.getJugador()) {
             if(!movimientos.containsKey(filPosible)) 
                 movimientos.put(filPosible, new ArrayList<>());
             movimientos.get(filPosible).add(colPosible);

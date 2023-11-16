@@ -8,7 +8,6 @@ import ajedrez.controller.Menu;
 import ajedrez.view.Musica;
 
 public class App extends Application {
-    public enum NumJugador {UNO, DOS};
     private static Musica musica = new Musica();
 
     @Override

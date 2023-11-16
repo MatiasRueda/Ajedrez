@@ -3,7 +3,7 @@ package ajedrez.model.tipoficha;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import ajedrez.App.NumJugador;
+import ajedrez.model.JUGADOR;
 import ajedrez.model.Tablero;
 import ajedrez.model.publisher.Ficha;
 import ajedrez.model.tipodemovimiento.Movible;
@@ -15,8 +15,8 @@ public class Rey extends Ficha{
     private Movible tipoDeMovimiento = new MovimientoConRango(this, RANGO);
     private Boolean primerMovimiento = true;
 
-    public Rey (String id, NumJugador numJugador) {
-        super("Rey", id, numJugador);
+    public Rey (String id, JUGADOR jugador) {
+        super("Rey", id, jugador);
     }
 
     public Boolean getPrimerMovimiento() {

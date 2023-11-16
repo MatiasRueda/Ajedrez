@@ -3,7 +3,7 @@ package ajedrez.model.tipoficha;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import ajedrez.App.NumJugador;
+import ajedrez.model.JUGADOR;
 import ajedrez.model.Tablero;
 import ajedrez.model.publisher.Ficha;
 import ajedrez.model.tipodemovimiento.Movible;
@@ -13,8 +13,8 @@ import ajedrez.model.tipodemovimiento.MovimientoSinRango;
 public class Reina extends Ficha{
     private Movible tipoDeMovimiento = new MovimientoSinRango(this);
 
-    public Reina (String id, NumJugador numJugador) {
-        super("Reina", id, numJugador);
+    public Reina (String id, JUGADOR jugador) {
+        super("Reina", id, jugador);
     }
     
     public  HashMap<Integer, ArrayList<Integer>> verificarMovimientosPosibles(Tablero tablero){

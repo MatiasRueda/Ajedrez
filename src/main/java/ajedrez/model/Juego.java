@@ -50,7 +50,7 @@ public class Juego {
         if (!this.turnoUsuario.getTurnoActual().moverFicha(fila, columna, this.fichaMover)) return false;
 
         if (this.fichaElegida != null && this.fichaMover.getNombre().equals("Torre") && this.fichaElegida.getNombre().equals("Rey")) {
-            if (this.fichaMover.getNumJugador() == this.fichaElegida.getNumJugador()) this.movimientoEnroque = true;
+            if (this.fichaMover.getJugador() == this.fichaElegida.getJugador()) this.movimientoEnroque = true;
         }
         if (this.fichaMover.getNombre().equals("Peon") && fila == this.fichaMover.getFILA_FINAL()) {
             this.cambioPeon = true;
@@ -100,7 +100,7 @@ public class Juego {
         Ficha ficha = tablero.getFicha(fila, columna);
         Suscriber registro = ficha.getSuscriber();
         FabricaDeFichas fabrica = new FabricaDeFichas();
-        Ficha fichaCreada = fabrica.getFicha(nombreFicha, ficha.getId(), ficha.getNumJugador());
+        Ficha fichaCreada = fabrica.getFicha(nombreFicha, ficha.getId(), ficha.getJugador());
         fichaCreada.addsuscriber(registro);
         this.turnoUsuario.getTurnoActual().agregarFichaAlasDisponibles(fichaCreada);
         this.tablero.sacarFicha(ficha);

@@ -10,8 +10,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
 
-
-
 public class Tablero {
     private static Musica musica = new Musica();
 

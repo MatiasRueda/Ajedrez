@@ -6,7 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-public class OpcionesFinal {
+public class Ganador {
+    public String opcion;
 
     @FXML
     private Label ganador;
@@ -17,26 +18,24 @@ public class OpcionesFinal {
     @FXML
     private Button reiniciarBtn;
 
-    private String op;
-
-    public String getOpFinal() {
-        return this.op;
-    }
-
     public void setMensaje(String Jugador) {
         this.ganador.setText("Felicidades jugador " + Jugador + " ganaste!!!");
     }
 
+    public String getOpcion() {
+        return this.opcion;
+    }
+
     @FXML
     void menu(ActionEvent event) {
-        this.op = menuBtn.getText();
+        this.opcion = menuBtn.getText();
         Stage sta = (Stage) this.menuBtn.getScene().getWindow();
         sta.close();
     }
 
     @FXML
     void reiniciar(ActionEvent event) {
-        this.op = reiniciarBtn.getText();
+        this.opcion = reiniciarBtn.getText();
         Stage sta = (Stage) this.reiniciarBtn.getScene().getWindow();
         sta.close();
     }

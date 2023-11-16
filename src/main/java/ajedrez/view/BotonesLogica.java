@@ -4,8 +4,12 @@ import java.io.IOException;
 
 import ajedrez.App.NumJugador;
 import ajedrez.controller.Escenas;
+import ajedrez.controller.Fichas;
+import ajedrez.controller.Ganador;
 import ajedrez.model.Juego;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 
@@ -23,7 +27,6 @@ public class BotonesLogica {
 
     private ImagenBoton imagenBtn = new ImagenBoton();
     private Musica musica = new Musica();
-    private CargarEscenaJugador cargarEscenaJugador = new CargarEscenaJugador();
     private Escenas escenas = ajedrez.controller.Menu.escenas;
 
     public BotonesLogica(RegistroBotones registroBtn, Juego juego, RegistroGraficos registroInfo, GridPane panel) {
@@ -50,7 +53,7 @@ public class BotonesLogica {
  *  que se haya elegido una ficha anteriormente. Devuelve True en caso de que 
  *  el movimiento haya sido valido y False en caso contrario.
  */
-    private Boolean elegirIntercambio(ActionEvent event, Button btn) {
+    private Boolean elegirIntercambio(ActionEvent event, Button btn) throws IOException {
         columnaCambiar = GridPane.getColumnIndex((Button)event.getSource());
         filaCambiar = GridPane.getRowIndex((Button)event.getSource());
         if (!this.juego.moverFicha(filaCambiar, columnaCambiar)){ 
@@ -78,10 +81,15 @@ public class BotonesLogica {
 /*  Metodo encargado de graficar como se realiza cambio de peon, se muestra
 *   una escena con opciones de fichas y luego se agrega la imagen al peon
  */
-    private void graficoCambioPeon(Button btn) {
+    private void graficoCambioPeon(Button btn) throws IOException {
         String color = (this.juego.getTurnoUsuario().getNumJugador() == NumJugador.UNO)? "blanco" : "negro";
-        cargarEscenaJugador.cargarOpciones(color);
-        String opcion = cargarEscenaJugador.getOpcion();
+        FXMLLoader fxmlLoader = escenas.getFXML("opciones");
+        Parent root = fxmlLoader.load();
+        Fichas op = fxmlLoader.getController();
+        op.setColor(color);
+        op.agregarImagenes();
+        escenas.mostrarStage(root);
+        String opcion = op.getOpcion();
         this.juego.agregarFicha(opcion, filaCambiar, columnaCambiar);
         this.botonElegido.setGraphic(null);
         imagenBtn.colocarImagen(opcion, color, btn, 80);
@@ -121,8 +129,16 @@ public class BotonesLogica {
  */
     private void cargarSiguienteEscena() throws IOException {
         String numeroJugador = this.juego.getTurnoUsuario().getNumJugador().toString();
-        cargarEscenaJugador.cargarOpcionesFinal(numeroJugador);
-        String opcion = cargarEscenaJugador.getOpcion();
+        FXMLLoader fxmlLoader = escenas.getFXML("opcionesFinal");
+        Parent root = fxmlLoader.load();
+        Ganador op = fxmlLoader.getController();
+        op.setMensaje(numeroJugador);
+        escenas.mostrarStage(root);
+        String opcion = op.getOpcion();
+        /* 
+         *  cargarEscenaJugador.cargarOpcionesFinal(numeroJugador);
+         *  String opcion = cargarEscenaJugador.getOpcion();
+        */
         if (opcion.equals("Reiniciar")) {
             Musica.stopMusicaFondo();
             escenas.cambiarEscena("tablero");

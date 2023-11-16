@@ -6,8 +6,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class Opciones {
+public class Fichas {
     private ImagenBoton imagenBoton = new ImagenBoton();
+    private String opcion;
+    private String color;
     private final int TAMANIO = 80;
 
     @FXML
@@ -21,15 +23,10 @@ public class Opciones {
 
     @FXML
     private Button botonCaballo;
-
-
-    private String opcionElegida;
-
-    private String color;
     
 
-    public String getOpcionElegida() {
-        return this.opcionElegida;
+    public String getOpcion() {
+        return this.opcion;
     }
 
     public void agregarImagenes() {
@@ -45,7 +42,7 @@ public class Opciones {
 
     @FXML
     void click(ActionEvent event) {
-        this.opcionElegida = botonTorre.getText();
+        this.opcion = botonTorre.getText();
         Stage stage = (Stage) this.botonTorre.getScene().getWindow();
         stage.close();
     }
@@ -53,21 +50,21 @@ public class Opciones {
 
     @FXML
     void click2(ActionEvent event) {
-        this.opcionElegida = botonAfil.getText();
+        this.opcion = botonAfil.getText();
         Stage stage = (Stage) this.botonAfil.getScene().getWindow();
         stage.close();
     }
 
     @FXML
     void click3(ActionEvent event) {
-        this.opcionElegida = botonReina.getText();
+        this.opcion = botonReina.getText();
         Stage stage = (Stage) this.botonReina.getScene().getWindow();
         stage.close();
     }
 
     @FXML
     void click4(ActionEvent event) {
-        this.opcionElegida = botonCaballo.getText();
+        this.opcion = botonCaballo.getText();
         Stage stage = (Stage) this.botonCaballo.getScene().getWindow();
         stage.close();
     }

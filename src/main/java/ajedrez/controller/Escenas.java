@@ -4,13 +4,15 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import ajedrez.App;
 
 public class Escenas {
     private Stage primaryStage;
 
-    private FXMLLoader getFXML(String fxml) {
+    public FXMLLoader getFXML(String fxml) {
         return new FXMLLoader(App.class.getResource("/ajedrez/Escenarios/"+ fxml + ".fxml"));
     }
 
@@ -21,6 +23,15 @@ public class Escenas {
 
     public void setStage(Stage stage) {
         this.primaryStage = stage;
+    }
+
+    public void mostrarStage(Parent root) {
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setScene(scene);
+        stage.showAndWait();
     }
 
     public Stage cambiarEscena(String escena) throws IOException{

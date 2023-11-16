@@ -23,7 +23,7 @@ public class Musica {
     private final double VOLUMEN = 0.05;
     
     public void musicaIntroPlay() {
-        media = new Media(getClass().getResource("/ajedrez/musica/musica_generica.mp3").toString());
+        media = new Media(getClass().getResource("/ajedrez/Musica/musica_generica.mp3").toString());
         musicaFondo = new MediaPlayer(media);
         musicaFondo.setVolume(VOLUMEN);
         Runnable onEnd = new Runnable() {
@@ -41,7 +41,7 @@ public class Musica {
     }
 
     public void musicaJuegoPlay() {
-        media = new Media(getClass().getResource("/ajedrez/musica/musica_juego.mp3").toString());
+        media = new Media(getClass().getResource("/ajedrez/Musica/musica_juego.mp3").toString());
         musicaFondo = new MediaPlayer(media);
         musicaFondo.setVolume(VOLUMEN);
         Runnable onEnd = new Runnable() {
@@ -60,7 +60,7 @@ public class Musica {
 
 
     public void musicaAceptadoPlay() {
-        media2 = new Media(getClass().getResource("/ajedrez/musica/aceptado.mp3").toString());
+        media2 = new Media(getClass().getResource("/ajedrez/Musica/aceptado.mp3").toString());
         efectoSonido = new MediaPlayer(media2);
         efectoSonido.setVolume(VOLUMEN);
         efectoSonido.play();
@@ -68,14 +68,14 @@ public class Musica {
 
 
     public void musicaErrorPlay() {
-        media2 = new Media(getClass().getResource("/ajedrez/musica/error.mp3").toString());
+        media2 = new Media(getClass().getResource("/ajedrez/Musica/error.mp3").toString());
         efectoSonido = new MediaPlayer(media2);
         efectoSonido.setVolume(VOLUMEN);
         efectoSonido.play();
     }
 
     public void musicaJaquePlay() {
-        media2 = new Media(getClass().getResource("/ajedrez/musica/jaque.mp3").toString());
+        media2 = new Media(getClass().getResource("/ajedrez/Musica/jaque.mp3").toString());
         efectoSonido = new MediaPlayer(media2);
         efectoSonido.setVolume(VOLUMEN);
         efectoSonido.play();

@@ -37,13 +37,12 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ajedrez.controller.Fichas">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ajedrez.controller.Fichas">
    <children>
       <Button fx:id="botonTorre" contentDisplay="GRAPHIC_ONLY" layoutX="33.0" layoutY="139.0" mnemonicParsing="false" onAction="#click" prefHeight="103.0" prefWidth="99.0" text="Torre" />
-      <Button fx:id="botonAfil" contentDisplay="GRAPHIC_ONLY" layoutX="175.0" layoutY="139.0" mnemonicParsing="false" onAction="#click2" prefHeight="103.0" prefWidth="99.0" text="Afil" />
-      <Button fx:id="botonReina" contentDisplay="GRAPHIC_ONLY" layoutX="314.0" layoutY="139.0" mnemonicParsing="false" onAction="#click3" prefHeight="103.0" prefWidth="99.0" text="Reina" />
-      <Button fx:id="botonCaballo" contentDisplay="GRAPHIC_ONLY" layoutX="458.0" layoutY="139.0" mnemonicParsing="false" onAction="#click4" prefHeight="103.0" prefWidth="99.0" text="Caballo" />
+      <Button fx:id="botonAfil" contentDisplay="GRAPHIC_ONLY" layoutX="175.0" layoutY="139.0" mnemonicParsing="false" onAction="#click" prefHeight="103.0" prefWidth="99.0" text="Afil" />
+      <Button fx:id="botonReina" contentDisplay="GRAPHIC_ONLY" layoutX="314.0" layoutY="139.0" mnemonicParsing="false" onAction="#click" prefHeight="103.0" prefWidth="99.0" text="Reina" />
+      <Button fx:id="botonCaballo" contentDisplay="GRAPHIC_ONLY" layoutX="458.0" layoutY="139.0" mnemonicParsing="false" onAction="#click" prefHeight="103.0" prefWidth="99.0" text="Caballo" />
       <Label alignment="CENTER" layoutX="158.0" layoutY="76.0" prefHeight="17.0" prefWidth="302.0" text="ELIGA ALGUNA FICHA">
          <font>
             <Font size="25.0" />

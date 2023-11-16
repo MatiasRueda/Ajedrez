@@ -83,7 +83,7 @@ public class BotonesLogica {
  */
     private void graficoCambioPeon(Button btn) throws IOException {
         String color = (this.juego.getTurnoUsuario().getNumJugador() == NumJugador.UNO)? "blanco" : "negro";
-        FXMLLoader fxmlLoader = escenas.getFXML("opciones");
+        FXMLLoader fxmlLoader = escenas.getFXML("fichas");
         Parent root = fxmlLoader.load();
         Fichas op = fxmlLoader.getController();
         op.setColor(color);
@@ -129,16 +129,12 @@ public class BotonesLogica {
  */
     private void cargarSiguienteEscena() throws IOException {
         String numeroJugador = this.juego.getTurnoUsuario().getNumJugador().toString();
-        FXMLLoader fxmlLoader = escenas.getFXML("opcionesFinal");
+        FXMLLoader fxmlLoader = escenas.getFXML("ganador");
         Parent root = fxmlLoader.load();
         Ganador op = fxmlLoader.getController();
         op.setMensaje(numeroJugador);
         escenas.mostrarStage(root);
         String opcion = op.getOpcion();
-        /* 
-         *  cargarEscenaJugador.cargarOpcionesFinal(numeroJugador);
-         *  String opcion = cargarEscenaJugador.getOpcion();
-        */
         if (opcion.equals("Reiniciar")) {
             Musica.stopMusicaFondo();
             escenas.cambiarEscena("tablero");

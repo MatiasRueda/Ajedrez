@@ -40,5 +40,4 @@ public class Ganador {
         sta.close();
     }
 
-
 }

@@ -42,30 +42,10 @@ public class Fichas {
 
     @FXML
     void click(ActionEvent event) {
-        this.opcion = botonTorre.getText();
-        Stage stage = (Stage) this.botonTorre.getScene().getWindow();
-        stage.close();
-    }
-
-
-    @FXML
-    void click2(ActionEvent event) {
-        this.opcion = botonAfil.getText();
-        Stage stage = (Stage) this.botonAfil.getScene().getWindow();
-        stage.close();
-    }
-
-    @FXML
-    void click3(ActionEvent event) {
-        this.opcion = botonReina.getText();
-        Stage stage = (Stage) this.botonReina.getScene().getWindow();
-        stage.close();
-    }
-
-    @FXML
-    void click4(ActionEvent event) {
-        this.opcion = botonCaballo.getText();
-        Stage stage = (Stage) this.botonCaballo.getScene().getWindow();
+        Button boton = ((Button)event.getSource());
+        this.opcion = boton.getText();
+        Stage stage = (Stage) boton.getScene().getWindow();
+        System.out.println(this.opcion);
         stage.close();
     }
 }

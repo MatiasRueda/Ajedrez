@@ -24,7 +24,7 @@ public class Rey extends Ficha{
         return this.primerMovimiento;
     }
 
-    public  HashMap<Integer, ArrayList<Integer>> verificarMovimientosPosibles(Tablero tablero){
+    public  HashMap<Integer, ArrayList<Integer>> movPosibles(Tablero tablero){
         var movimientos = new HashMap<Integer, ArrayList<Integer>>();
         int[] direcciones_y = { 1, -1, 0, 0, 1, -1, 1, -1};
         int[] direcciones_x = { 0, 0, 1, -1, 1, -1, -1, 1};

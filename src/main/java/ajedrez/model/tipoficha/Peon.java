@@ -24,7 +24,7 @@ public class Peon extends Ficha{
         this.tipoDeMovimiento = new MovimientoPeon(this, RANGO_PRIMER_MOVIMIENTO);
     }
 
-    public HashMap<Integer, ArrayList<Integer>> verificarMovimientosPosibles(Tablero tablero){
+    public HashMap<Integer, ArrayList<Integer>> movPosibles(Tablero tablero){
         var movimientos = new HashMap<Integer, ArrayList<Integer>>();
         tipoDeMovimiento.movimientosValidos(tablero, DIRECCION_Y, DIRECCION_X, movimientos);
         int[] direcciones_x_oblicua = {1, -1};
@@ -39,7 +39,7 @@ public class Peon extends Ficha{
     public Boolean mover(int fila, int col, Tablero tablero) {
         if (!tablero.estaLaFicha(this)) return false;
         setCaptura(null);
-        var movimientos = verificarMovimientosPosibles(tablero);
+        var movimientos = movPosibles(tablero);
         if(movimientos.containsKey(fila) && movimientos.get(fila).contains(col)) {
             this.tipoDeMovimiento = new MovimientoPeon(this, RANGO_NORMAL);
             verificarFichaSacada(tablero, fila, col);

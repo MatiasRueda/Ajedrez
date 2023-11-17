@@ -21,7 +21,7 @@ public class Torre extends Ficha{
         super(FICHA.TORRE, id, jugador);
     }
 
-    public  HashMap<Integer, ArrayList<Integer>> verificarMovimientosPosibles(Tablero tablero){
+    public  HashMap<Integer, ArrayList<Integer>> movPosibles(Tablero tablero){
         var movimientos = new HashMap<Integer, ArrayList<Integer>>(); 
         int[] direcciones_y = { 1, -1, 0, 0};
         int[] direcciones_x = { 0, 0, 1, -1};
@@ -35,7 +35,7 @@ public class Torre extends Ficha{
     public Boolean mover(int fila, int columna, Tablero tablero) {
         if (!tablero.estaLaFicha(this)) return false;
         setCaptura(null);
-        var movimientos = verificarMovimientosPosibles(tablero);
+        var movimientos = movPosibles(tablero);
         if (torreCumpleRequisitosEnroque(fila, columna) && reyCumpleRequisitosEnroque(tablero, movimientos)){
             enroque(tablero);
             return true;
@@ -60,7 +60,7 @@ public class Torre extends Ficha{
         var fichaRey = tablero.getFicha(this.FILA_REY, 4);
         if (fichaRey == null) 
             return false;
-        if (!(fichaRey.getNombre().equals("Rey")) || fichaRey.getJugador() != this.getJugador()) 
+        if (!(fichaRey.mismoTipo(FICHA.REY)) || fichaRey.getJugador() != this.getJugador()) 
             return false;
         if (!movimientos.containsKey(this.FILA_REY) || !((Rey)fichaRey).getPrimerMovimiento()) 
             return false;

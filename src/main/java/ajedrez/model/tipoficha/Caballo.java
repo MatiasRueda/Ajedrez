@@ -18,7 +18,7 @@ public class Caballo extends Ficha{
         super(FICHA.CABALLO, id, jugador);
     }
     
-    public  HashMap<Integer, ArrayList<Integer>> verificarMovimientosPosibles(Tablero tablero){
+    public  HashMap<Integer, ArrayList<Integer>> movPosibles(Tablero tablero){
         this.movimientos = new HashMap<Integer, ArrayList<Integer>>();
         this.tablero = tablero;
         int[] direcciones_y = {1, -1, 0, 0};

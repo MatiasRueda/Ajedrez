@@ -14,7 +14,7 @@ public class RegistroFichas implements Suscriber {
     public void update(Ficha ficha) {
         capturadas.put(ficha.getId(), ficha);
         this.ultimaCaptura = ficha;
-        this.reyCapturado = (ficha.getNombre().equals(FICHA.REY.toString().toLowerCase()));
+        this.reyCapturado = (ficha.mismoTipo(FICHA.REY));
     }
 
     public Ficha getUltimaCaptura() {

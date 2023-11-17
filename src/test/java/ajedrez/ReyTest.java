@@ -23,18 +23,18 @@ public class ReyTest {
     @Test
     public void movimientosCorrectosTest(){
         this.tablero.colocarFicha(this.Rey, 0, 0);
-        this.Rey.setMovimientos(this.Rey.verificarMovimientosPosibles(this.tablero));
+        this.Rey.setMovimientos(this.Rey.movPosibles(this.tablero));
         assertTrue(this.Rey.mover(1, 0, this.tablero));
-        this.Rey.setMovimientos(this.Rey.verificarMovimientosPosibles(this.tablero));
+        this.Rey.setMovimientos(this.Rey.movPosibles(this.tablero));
         assertTrue(this.Rey.mover(1, 1, this.tablero));
-        this.Rey.setMovimientos(this.Rey.verificarMovimientosPosibles(this.tablero));
+        this.Rey.setMovimientos(this.Rey.movPosibles(this.tablero));
         assertTrue(this.Rey.mover(2, 0, this.tablero));
     }
 
     @Test
     public void movimientosNoCorrectosTest(){
         this.tablero.colocarFicha(this.Rey, 0, 0);
-        this.Rey.setMovimientos(this.Rey.verificarMovimientosPosibles(this.tablero));
+        this.Rey.setMovimientos(this.Rey.movPosibles(this.tablero));
         assertFalse(this.Rey.mover(1, 7, this.tablero));
         assertFalse(this.Rey.mover(0, 8, this.tablero));
         assertFalse(this.Rey.mover(1, 5, this.tablero));
@@ -46,14 +46,14 @@ public class ReyTest {
         var Rey2 = new Rey("2", JUGADOR.UNO);
         this.tablero.colocarFicha(this.Rey, 0, 0);
         this.tablero.colocarFicha(Rey2, 0, 1);
-        this.Rey.setMovimientos(this.Rey.verificarMovimientosPosibles(this.tablero));
+        this.Rey.setMovimientos(this.Rey.movPosibles(this.tablero));
         assertFalse(this.Rey.mover(0, 1, this.tablero));
     }
 
     @Test
     public void noSePuedeQuedarEnElLugar(){
         this.tablero.colocarFicha(this.Rey, 0, 0);
-        this.Rey.setMovimientos(this.Rey.verificarMovimientosPosibles(this.tablero));
+        this.Rey.setMovimientos(this.Rey.movPosibles(this.tablero));
         assertFalse(this.Rey.mover(0, 0, this.tablero));
     }
 

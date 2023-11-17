@@ -37,7 +37,11 @@ public abstract class Ficha implements Publisher{
     }
 
     public String getNombre(){
-        return this.ficha.toString().toLowerCase();
+        return this.ficha.toString();
+    }
+
+    public Boolean mismoTipo(FICHA ficha) {
+        return this.ficha.toString().equals(ficha.toString());
     }
     
     public String getId() {
@@ -71,7 +75,7 @@ public abstract class Ficha implements Publisher{
     public Boolean mover(int fila, int columna, Tablero tablero) {
         if (!tablero.estaLaFicha(this)) return false;
         setCaptura(null);
-        var movimientos = verificarMovimientosPosibles(tablero);
+        var movimientos = movPosibles(tablero);
         if(movimientos.containsKey(fila) && movimientos.get(fila).contains(columna)) {
             verificarFichaSacada(tablero, fila, columna);
             return true;
@@ -94,6 +98,6 @@ public abstract class Ficha implements Publisher{
 *   Las keys son: Integers representando las filas y
 *   Los values son: Un ArrayList que contiene las columnas de dicha fila.
  */
-    public abstract HashMap<Integer, ArrayList<Integer>> verificarMovimientosPosibles(Tablero tablero);
+    public abstract HashMap<Integer, ArrayList<Integer>> movPosibles(Tablero tablero);
 
 }

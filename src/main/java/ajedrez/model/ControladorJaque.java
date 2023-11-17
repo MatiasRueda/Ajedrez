@@ -13,7 +13,7 @@ public class ControladorJaque {
         this.tablero = tablero;
     }
 
-    public void setMovimientosPosibles(HashMap<Integer, ArrayList<Integer>> mov) {
+    public void setMovPosibles(HashMap<Integer, ArrayList<Integer>> mov) {
         this.movimientosPosibles = mov;
     }
     

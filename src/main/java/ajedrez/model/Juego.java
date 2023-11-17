@@ -23,18 +23,18 @@ public class Juego {
         this.turnoUsuario = new TurnoUsuario(this.tablero);
     }
 
-
     public Boolean eleccionFicha(int fila, int columna) {
         this.cambioPeon = false;
         this.movimientoEnroque = false;
-        var fichaSeleccionada = this.tablero.getFicha(fila, columna);
-        if (!this.turnoUsuario.fichaDelUsuario(fichaSeleccionada)) return false;
-        this.fichaMover = fichaSeleccionada;
-        this.movimientosPosibles = fichaSeleccionada.verificarMovimientosPosibles(this.tablero);
-        if (!fichaSeleccionada.getNombre().equals("Rey")) return true;
+        Ficha fichaElegida = this.tablero.getFicha(fila, columna);
+        if (!this.turnoUsuario.fichaDelUsuario(fichaElegida)) return false;
+        this.fichaMover = fichaElegida;
+        this.movimientosPosibles = fichaElegida.movPosibles(this.tablero);
+        if (!fichaElegida.mismoTipo(FICHA.REY)) 
+            return true;
         Usuario rival = this.turnoUsuario.getRival();
-        controladorJaque.setMovimientosPosibles(this.movimientosPosibles);
-        this.movimientosPosibles = controladorJaque.posibleJaque(rival, fichaSeleccionada);
+        controladorJaque.setMovPosibles(this.movimientosPosibles);
+        this.movimientosPosibles = controladorJaque.posibleJaque(rival, fichaElegida);
         this.fichaMover.setMovimientos(this.movimientosPosibles);
         return true; 
     }
@@ -49,14 +49,15 @@ public class Juego {
         this.fichaElegida = this.tablero.getFicha(fila, columna);
         if (!this.turnoUsuario.getTurnoActual().moverFicha(fila, columna, this.fichaMover)) return false;
 
-        if (this.fichaElegida != null && this.fichaMover.getNombre().equals("Torre") && this.fichaElegida.getNombre().equals("Rey")) {
-            if (this.fichaMover.getJugador() == this.fichaElegida.getJugador()) this.movimientoEnroque = true;
-        }
-        if (this.fichaMover.getNombre() == FICHA.PEON.toString() && fila == this.fichaMover.getUltimaFila()) {
+        if (this.fichaElegida != null && 
+            this.fichaMover.mismoTipo(FICHA.TORRE) && 
+            this.fichaElegida.mismoTipo(FICHA.REY) && 
+            this.fichaMover.getJugador() == this.fichaElegida.getJugador())
+                this.movimientoEnroque = true;
+        if (this.fichaMover.mismoTipo(FICHA.PEON)  && fila == this.fichaMover.getUltimaFila())
             this.cambioPeon = true;
-        }
-        var jugando = this.turnoUsuario.getTurnoActual();
-        var rival = this.turnoUsuario.getRival(); 
+        Usuario jugando = this.turnoUsuario.getTurnoActual();
+        Usuario rival = this.turnoUsuario.getRival(); 
         if (jugando.getUltimaCaptura() != null ) rival.sacarFicha(jugando.getUltimaCaptura());
         this.jaque = jugando.buscandoJaque();
         this.fichaMover = null;

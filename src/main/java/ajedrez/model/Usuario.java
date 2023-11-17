@@ -64,9 +64,9 @@ public class Usuario {
     public Boolean noHayMovimientosPosibles(Usuario rival, ControladorJaque control) {
         int noHayMovimientos = 0;
         for (Ficha ficha : this.fichasDisponibles.values()) {
-            var movimientos = ficha.verificarMovimientosPosibles(this.tablero);
-            if (ficha.getNombre() == FICHA.REY.toString()) {
-                control.setMovimientosPosibles(movimientos);
+            var movimientos = ficha.movPosibles(this.tablero);
+            if (ficha.mismoTipo(FICHA.REY)) {
+                control.setMovPosibles(movimientos);
                 movimientos = control.posibleJaque(rival, ficha);
             }
             if (movimientos.isEmpty()) noHayMovimientos++; 
@@ -79,7 +79,7 @@ public class Usuario {
 */
     public Boolean buscandoJaque() {
         for (Ficha ficha : this.fichasDisponibles.values()) {
-            var movimientos = ficha.verificarMovimientosPosibles(this.tablero);
+            var movimientos = ficha.movPosibles(this.tablero);
             if (movimientos.isEmpty()) continue;
             if (recorrerMovimientos(movimientos)) return true;
         }
@@ -98,7 +98,7 @@ public class Usuario {
         for (int columna : columnas) {
             Ficha ficha  = this.tablero.getFicha(fila, columna);
             if (ficha == null) continue;
-            if (ficha.getNombre() == FICHA.REY.toString()) return true;
+            if (ficha.mismoTipo(FICHA.REY)) return true;
           }
         return false;
     }

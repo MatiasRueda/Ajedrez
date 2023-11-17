@@ -5,7 +5,7 @@ import java.util.HashMap;
 import ajedrez.model.publisher.Ficha;
 
 
-public class RegistroFichas implements Suscriber{
+public class RegistroFichas implements Suscriber {
     private HashMap<String, Ficha> capturadas = new HashMap<>();
     private boolean reyCapturado = false;
     private Ficha ultimaCaptura;

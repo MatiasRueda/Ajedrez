@@ -30,7 +30,7 @@ public class Tablero {
     private Label turnoJugador;
 
     @FXML
-    private StackPane tablero;
+    private StackPane ajedrez;
 
     private Juego juego;
     private Registros registros;

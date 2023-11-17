@@ -37,7 +37,7 @@ public abstract class Ficha implements Publisher{
     }
 
     public String getNombre(){
-        return this.ficha.toString();
+        return this.ficha.toString().toLowerCase();
     }
     
     public String getId() {

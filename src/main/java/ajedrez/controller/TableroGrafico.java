@@ -1,14 +1,14 @@
 package ajedrez.controller;
 
 import java.util.ArrayList;
-import ajedrez.model.Juego;
+import ajedrez.model.Ajedrez;
 import ajedrez.view.BotonTablero;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 
 public class TableroGrafico{
     private GridPane tablero;
-    private Juego juego;
+    private Ajedrez juego;
     private Registros registros;
     private String color;
     private boolean casilleroBlanco = true;
@@ -16,7 +16,7 @@ public class TableroGrafico{
     private BotonTablero botonTablero = new BotonTablero();
     private Accion botonTableroLogica;
     
-    public TableroGrafico(Juego juego, Registros registros, Turno turno, GridPane tablero){
+    public TableroGrafico(Ajedrez juego, Registros registros, Turno turno, GridPane tablero){
         this.juego = juego;
         this.tablero = tablero;
         this.registros = registros;

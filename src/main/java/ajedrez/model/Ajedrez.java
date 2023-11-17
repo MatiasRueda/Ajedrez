@@ -6,7 +6,7 @@ import java.util.HashMap;
 import ajedrez.model.publisher.Ficha;
 import ajedrez.model.sucriber.Suscriber;
 
-public class Juego {
+public class Ajedrez {
     private Tablero tablero = new Tablero();
     private TurnoUsuario turnoUsuario;
     private Ficha fichaMover;
@@ -17,7 +17,7 @@ public class Juego {
     private HashMap<Integer, ArrayList<Integer>> movimientosPosibles;
     private ControladorJaque controladorJaque;
 
-    public Juego() {
+    public Ajedrez() {
         this.tablero.llenarTablero();
         this.controladorJaque = new ControladorJaque(this.tablero);
         this.turnoUsuario = new TurnoUsuario(this.tablero);

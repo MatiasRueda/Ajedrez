@@ -5,14 +5,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 import ajedrez.model.JUGADOR;
-import ajedrez.model.Juego;
+import ajedrez.model.Ajedrez;
 
 public class JuegoTest {
-    private Juego juego;
+    private Ajedrez juego;
 
     @Before
     public void preparativo() {;
-        this.juego = new Juego();
+        this.juego = new Ajedrez();
     }
 
     @Test

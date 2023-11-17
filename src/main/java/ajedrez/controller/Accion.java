@@ -2,9 +2,9 @@ package ajedrez.controller;
 
 import java.io.IOException;
 
+import ajedrez.model.Ajedrez;
 import ajedrez.model.FICHA;
 import ajedrez.model.JUGADOR;
-import ajedrez.model.Juego;
 import ajedrez.view.Imagen;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +21,7 @@ public class Accion {
     private int filaCambiar;
     
     private ControlBotones control;
-    private Juego juego;
+    private Ajedrez juego;
     private Registros registroInfo;
     private Turno turno;
 
@@ -29,7 +29,7 @@ public class Accion {
     private Musica musica = ajedrez.controller.Menu.musica;
     private Escenas escenas = ajedrez.controller.Menu.escenas;
 
-    public Accion(ControlBotones control, Juego juego, Turno turno , Registros registroInfo) {
+    public Accion(ControlBotones control, Ajedrez juego, Turno turno , Registros registroInfo) {
         this.control = control;
         this.juego = juego;
         this.registroInfo = registroInfo;

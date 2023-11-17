@@ -10,6 +10,7 @@ public class Usuario {
     private RegistroFichas registro = new RegistroFichas();
     private FabricaDeFichas fabrica = new FabricaDeFichas();
     private JUGADOR jugador;
+    private COLOR color;
     private Tablero tablero;
     private final int[] COLUMNA_PEON = {0, 1 , 2, 3, 4, 5, 6, 7};
     private final int[] COLUMNA_REINA = {3};
@@ -24,6 +25,7 @@ public class Usuario {
     public Usuario(JUGADOR jugador, Tablero tablero) {
         this.jugador = jugador;
         this.tablero = tablero;
+        this.color = this.jugador == JUGADOR.UNO? COLOR.BLANCO : COLOR.NEGRO;
         agregarFichas();
     }
     
@@ -40,6 +42,10 @@ public class Usuario {
 
     public JUGADOR getJugador() {
         return this.jugador;
+    }
+
+    public String getColorActual() {
+        return this.color.toString().toLowerCase();
     }
 
     public int cantidadCapturas() {

@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import ajedrez.model.Ajedrez;
 import ajedrez.model.FICHA;
-import ajedrez.model.JUGADOR;
 import ajedrez.view.Imagen;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -67,14 +66,15 @@ public class Accion {
 
         this.registroInfo.verificarCapturas(this.juego.getTurnoUsuario());
         if (this.juego.getEnroque()) {
-            enroque(boton);
+            enroque(boton, juego.getNuevaColumnaRey(), juego.getNuevaColumnaTorre());
             return true;
         }
         if (this.juego.getCambioPeon()){
             cambiarPeon(boton);
             return true;
         }
-        if (juego.getJaque()) musica.musicaJaquePlay();
+        if (juego.getJaque()) 
+            musica.musicaJaquePlay();
         boton.setGraphic(botonElegido.getGraphic());
         botonElegido.setGraphic(null);
         return true;
@@ -84,7 +84,7 @@ public class Accion {
 *   una escena con opciones de fichas y luego se agrega la imagen al peon
  */
     private void cambiarPeon(Button boton) throws IOException {
-        String color = (this.juego.getTurnoUsuario().getJugador() == JUGADOR.UNO)? "blanco" : "negro";
+        String color = this.juego.getTurnoUsuario().getColorActual();
         FXMLLoader fxmlLoader = escenas.getFXML(ESCENA.FICHAS);
         Parent root = fxmlLoader.load();
         Fichas op = fxmlLoader.getController();
@@ -101,11 +101,9 @@ public class Accion {
 /*  Metodo creado exclusivamente para poder mostrar en pantalla como se aplica
  *  el enroque
  */
-    private void enroque(Button boton) {
-        int nuevaColumnaRey = (columnaEleccion == 0)? 2 : 6;
-        int nuevaColumnaTorre = (nuevaColumnaRey == 2)? 3 : 5;
-        Button nuevaTorre = control.getBtn(filaEleccion, nuevaColumnaTorre);
-        Button nuevoRey = control.getBtn(filaCambiar, nuevaColumnaRey);
+    private void enroque(Button boton, int columnaRey, int columnaTorre) {
+        Button nuevaTorre = control.getBtn(filaEleccion, columnaTorre);
+        Button nuevoRey = control.getBtn(filaCambiar, columnaRey);
         nuevaTorre.setGraphic(this.botonElegido.getGraphic());
         nuevoRey.setGraphic(boton.getGraphic());
         boton.setGraphic(null);
@@ -117,9 +115,8 @@ public class Accion {
  */
     private void siguienteTurno() throws IOException {
         this.control.colorearPosicionesOriginales();
-        if (this.juego.hayGanador()) {
+        if (this.juego.hayGanador()) 
             cargarSiguienteEscena();
-        }
         this.juego.siguienteTurno();
         this.turno.nuevoTurno(this.juego.getTurnoUsuario());
         eleccionRealizada = false;

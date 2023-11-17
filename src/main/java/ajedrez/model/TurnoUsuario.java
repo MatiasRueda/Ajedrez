@@ -17,7 +17,7 @@ public class TurnoUsuario {
     }
 
     public Usuario getRival() {
-        return (this.turnoActual.getJugador() == JUGADOR.UNO)? this.usuario2 : this.usuario1;
+        return this.turnoActual.getJugador() == JUGADOR.UNO? this.usuario2 : this.usuario1;
     }
 
     public Boolean fichaDelUsuario(Ficha ficha) {

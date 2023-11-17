@@ -11,6 +11,8 @@ public class Ajedrez {
     private TurnoUsuario turnoUsuario;
     private Ficha fichaMover;
     private Ficha fichaElegida;
+    private int enroqueRey = 0;
+    private int enroqueTorre = 0;
     private Boolean movimientoEnroque = false;
     private Boolean cambioPeon = false;
     private Boolean jaque = false;    
@@ -23,11 +25,18 @@ public class Ajedrez {
         this.turnoUsuario = new TurnoUsuario(this.tablero);
     }
 
+    private void enroque(int columnaEleccion) {
+        this.enroqueRey = (columnaEleccion == 0)? 2 : 6;
+        this.enroqueTorre = (this.enroqueRey == 2)? 3 : 5;
+        this.movimientoEnroque = true;
+    }
+
     public Boolean eleccionFicha(int fila, int columna) {
         this.cambioPeon = false;
         this.movimientoEnroque = false;
         Ficha fichaElegida = this.tablero.getFicha(fila, columna);
-        if (!this.turnoUsuario.fichaDelUsuario(fichaElegida)) return false;
+        if (!this.turnoUsuario.fichaDelUsuario(fichaElegida)) 
+            return false;
         this.fichaMover = fichaElegida;
         this.movimientosPosibles = fichaElegida.movPosibles(this.tablero);
         if (!fichaElegida.mismoTipo(FICHA.REY)) 
@@ -38,7 +47,6 @@ public class Ajedrez {
         this.fichaMover.setMovimientos(this.movimientosPosibles);
         return true; 
     }
-
 
     public HashMap<Integer, ArrayList<Integer>> getMovimientosPosibles() {
         return this.movimientosPosibles;
@@ -53,7 +61,7 @@ public class Ajedrez {
             this.fichaMover.mismoTipo(FICHA.TORRE) && 
             this.fichaElegida.mismoTipo(FICHA.REY) && 
             this.fichaMover.getJugador() == this.fichaElegida.getJugador())
-                this.movimientoEnroque = true;
+                enroque(columna);
         if (this.fichaMover.mismoTipo(FICHA.PEON)  && fila == this.fichaMover.getUltimaFila())
             this.cambioPeon = true;
         Usuario jugando = this.turnoUsuario.getTurnoActual();
@@ -63,6 +71,14 @@ public class Ajedrez {
         this.fichaMover = null;
         this.fichaElegida = null;
         return true;
+    }
+
+    public int getNuevaColumnaTorre() {
+        return this.enroqueTorre;
+    }
+
+    public int getNuevaColumnaRey() {
+        return this.enroqueRey;
     }
 
     public Boolean getJaque() {

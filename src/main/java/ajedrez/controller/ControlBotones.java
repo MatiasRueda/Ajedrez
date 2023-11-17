@@ -1,11 +1,11 @@
-package ajedrez.view;
+package ajedrez.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import javafx.scene.control.Button;
 
-public class RegistroBotones {
+public class ControlBotones {
     private HashMap<Integer, HashMap<Integer, Button>> ubicacionBotones = new HashMap<>();
     private HashMap<Integer, HashMap<Integer, String>> coloresOriginales = new HashMap<>();
     private HashMap<Integer, ArrayList<Integer>> posicionesValidas;
@@ -26,7 +26,6 @@ public class RegistroBotones {
         var columnas = this.ubicacionBotones.get(fila);
         return columnas.get(columna);
     }
-
 
     private String getColor(int fila, int columna) {
         var columnas = this.coloresOriginales.get(fila);
@@ -54,6 +53,5 @@ public class RegistroBotones {
     public void colorearPosicionesOriginales() {
         this.posicionesValidas.forEach((k,v) -> coloreoOriginal(k, v));
     }
-
 
 }

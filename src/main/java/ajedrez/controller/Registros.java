@@ -1,4 +1,4 @@
-package ajedrez.view;
+package ajedrez.controller;
 
 import ajedrez.model.JUGADOR;
 import ajedrez.model.Usuario;
@@ -14,7 +14,8 @@ public class Registros {
     }
 
     public boolean verificarCapturas(Usuario usuario) {
-        return usuario.getJugador() == JUGADOR.UNO? this.jugadorUNO.verificarCapturas(usuario) : this.jugadorDOS.verificarCapturas(usuario);
+        return usuario.getJugador() == JUGADOR.UNO? 
+            this.jugadorUNO.verificarCapturas(usuario) : this.jugadorDOS.verificarCapturas(usuario);
     }
     
 }

@@ -1,15 +1,11 @@
-package ajedrez.view;
+package ajedrez.controller;
 
 import java.io.IOException;
 
 import ajedrez.model.FICHA;
 import ajedrez.model.JUGADOR;
-import ajedrez.controller.ESCENA;
-import ajedrez.controller.Escenas;
-import ajedrez.controller.Fichas;
-import ajedrez.controller.Ganador;
-import ajedrez.controller.Musica;
 import ajedrez.model.Juego;
+import ajedrez.view.Imagen;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -24,7 +20,7 @@ public class Accion {
     private int columnaCambiar;
     private int filaCambiar;
     
-    private RegistroBotones registroBtn;
+    private ControlBotones control;
     private Juego juego;
     private Registros registroInfo;
     private Turno turno;
@@ -33,8 +29,8 @@ public class Accion {
     private Musica musica = ajedrez.controller.Menu.musica;
     private Escenas escenas = ajedrez.controller.Menu.escenas;
 
-    public Accion(RegistroBotones registroBtn, Juego juego, Turno turno , Registros registroInfo) {
-        this.registroBtn = registroBtn;
+    public Accion(ControlBotones control, Juego juego, Turno turno , Registros registroInfo) {
+        this.control = control;
         this.juego = juego;
         this.registroInfo = registroInfo;
         this.turno = turno;
@@ -43,15 +39,15 @@ public class Accion {
 /*  Metodo encargado de graficar la eleccion, coloreando aquellos botones a los que
  *  se podra mover.
  */
-    private void eleccion(ActionEvent event, Button btn) {
+    private void eleccion(ActionEvent event, Button boton) {
         columnaEleccion = GridPane.getColumnIndex((Button)event.getSource());
         filaEleccion = GridPane.getRowIndex((Button)event.getSource());
         if (!this.juego.eleccionFicha(filaEleccion, columnaEleccion)) 
             return;
-        this.registroBtn.setPosicionesValidas(this.juego.getMovimientosPosibles());
-        this.registroBtn.colorearPosiciones();
+        this.control.setPosicionesValidas(this.juego.getMovimientosPosibles());
+        this.control.colorearPosiciones();
         this.eleccionRealizada = true;
-        this.botonElegido = btn;
+        this.botonElegido = boton;
         return;
     }
     
@@ -59,27 +55,27 @@ public class Accion {
  *  que se haya elegido una ficha anteriormente. Devuelve True en caso de que 
  *  el movimiento haya sido valido y False en caso contrario.
  */
-    private Boolean elegirIntercambio(ActionEvent event, Button btn) throws IOException {
+    private Boolean elegirIntercambio(ActionEvent event, Button boton) throws IOException {
         columnaCambiar = GridPane.getColumnIndex((Button)event.getSource());
         filaCambiar = GridPane.getRowIndex((Button)event.getSource());
         if (!this.juego.moverFicha(filaCambiar, columnaCambiar)){ 
             eleccionRealizada = false;
             musica.musicaErrorPlay();
-            this.registroBtn.colorearPosicionesOriginales();
+            this.control.colorearPosicionesOriginales();
             return false;
          }
 
         this.registroInfo.verificarCapturas(this.juego.getTurnoUsuario());
         if (this.juego.getEnroque()) {
-            graficoEnroque(btn);
+            enroque(boton);
             return true;
         }
         if (this.juego.getCambioPeon()){
-            graficoCambioPeon(btn);
+            cambiarPeon(boton);
             return true;
         }
         if (juego.getJaque()) musica.musicaJaquePlay();
-        btn.setGraphic(botonElegido.getGraphic());
+        boton.setGraphic(botonElegido.getGraphic());
         botonElegido.setGraphic(null);
         return true;
     }
@@ -87,7 +83,7 @@ public class Accion {
 /*  Metodo encargado de graficar como se realiza cambio de peon, se muestra
 *   una escena con opciones de fichas y luego se agrega la imagen al peon
  */
-    private void graficoCambioPeon(Button btn) throws IOException {
+    private void cambiarPeon(Button boton) throws IOException {
         String color = (this.juego.getTurnoUsuario().getJugador() == JUGADOR.UNO)? "blanco" : "negro";
         FXMLLoader fxmlLoader = escenas.getFXML(ESCENA.FICHAS);
         Parent root = fxmlLoader.load();
@@ -98,21 +94,21 @@ public class Accion {
         FICHA opcion = op.getOpcion();
         this.juego.agregarFicha(opcion, filaCambiar, columnaCambiar);
         this.botonElegido.setGraphic(null);
-        imagenBtn.colocarImagen(opcion.toString().toLowerCase(), color, btn, 80);
+        imagenBtn.colocarImagen(opcion.toString().toLowerCase(), color, boton, 80);
     }
 
 
 /*  Metodo creado exclusivamente para poder mostrar en pantalla como se aplica
  *  el enroque
  */
-    private void graficoEnroque(Button btn) {
+    private void enroque(Button boton) {
         int nuevaColumnaRey = (columnaEleccion == 0)? 2 : 6;
         int nuevaColumnaTorre = (nuevaColumnaRey == 2)? 3 : 5;
-        Button nuevaTorre = registroBtn.getBtn(filaEleccion, nuevaColumnaTorre);
-        Button nuevoRey = registroBtn.getBtn(filaCambiar, nuevaColumnaRey);
+        Button nuevaTorre = control.getBtn(filaEleccion, nuevaColumnaTorre);
+        Button nuevoRey = control.getBtn(filaCambiar, nuevaColumnaRey);
         nuevaTorre.setGraphic(this.botonElegido.getGraphic());
-        nuevoRey.setGraphic(btn.getGraphic());
-        btn.setGraphic(null);
+        nuevoRey.setGraphic(boton.getGraphic());
+        boton.setGraphic(null);
         botonElegido.setGraphic(null);
     }
 
@@ -120,7 +116,7 @@ public class Accion {
  *  siguiente turno, verificando antes si el jugador gano
  */
     private void siguienteTurno() throws IOException {
-        this.registroBtn.colorearPosicionesOriginales();
+        this.control.colorearPosicionesOriginales();
         if (this.juego.hayGanador()) {
             cargarSiguienteEscena();
         }
@@ -154,12 +150,12 @@ public class Accion {
 /*  Se encarga de la logica de los botones, si la eleccion ya fue realizada entonces
  *  hay que elegir a que posicion moverse, en caso contrario se tendra  que elegir
  */
-    private void logica(ActionEvent event, Button btn) throws IOException {
+    private void logica(ActionEvent event, Button boton) throws IOException {
         if(eleccionRealizada) { 
-            if (elegirIntercambio(event, btn)) siguienteTurno(); 
+            if (elegirIntercambio(event, boton)) siguienteTurno(); 
             return; 
         }
-        eleccion(event, btn);
+        eleccion(event, boton);
     }
 
     public void agregarLogicaAlBoton(Button btn) {

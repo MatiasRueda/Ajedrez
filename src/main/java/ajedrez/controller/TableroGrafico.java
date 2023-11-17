@@ -1,10 +1,10 @@
-package ajedrez.view;
+package ajedrez.controller;
 
 import java.util.ArrayList;
 import ajedrez.model.Juego;
+import ajedrez.view.BotonTablero;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
-
 
 public class TableroGrafico{
     private GridPane tablero;
@@ -12,16 +12,16 @@ public class TableroGrafico{
     private Registros registros;
     private String color;
     private boolean casilleroBlanco = true;
-    private RegistroBotones registroBtn = new RegistroBotones();
-    private Estilo botonesTablero = new Estilo();
-    private Accion botonesTableroLogica;
+    private ControlBotones control = new ControlBotones();
+    private BotonTablero botonTablero = new BotonTablero();
+    private Accion botonTableroLogica;
     
     public TableroGrafico(Juego juego, Registros registros, Turno turno, GridPane tablero){
         this.juego = juego;
         this.tablero = tablero;
         this.registros = registros;
         turno.nuevoTurno(this.juego.getTurnoUsuario());
-        this.botonesTableroLogica = new Accion(this.registroBtn, this.juego, turno, this.registros);
+        this.botonTableroLogica = new Accion(this.control, this.juego, turno, this.registros);
         agregarBotones();
     }
 
@@ -38,8 +38,8 @@ public class TableroGrafico{
         for(int columnas = 0; columnas < 8; columnas++) {
             String nombreDeLaFicha = nombresFichas.get(indiceNombres).get(0);
             this.color = (nombresFichas.get(indiceNombres).get(1).equals("UNO"))? "blanco" : "negro";
-            Button btn = botonesTablero.crearBotonPersonalizado(nombreDeLaFicha, color, this.casilleroBlanco);
-            botonesTableroLogica.agregarLogicaAlBoton(btn);
+            Button btn = botonTablero.crear(nombreDeLaFicha, color, this.casilleroBlanco);
+            botonTableroLogica.agregarLogicaAlBoton(btn);
             this.casilleroBlanco = (this.casilleroBlanco)? false : true;
             indiceNombres++;
 
@@ -47,7 +47,7 @@ public class TableroGrafico{
                 this.casilleroBlanco = (this.casilleroBlanco)? false : true;
             } 
             this.tablero.add(btn, columnas, filas);
-            this.registroBtn.add(filas, columnas, btn, btn.getStyle());
+            this.control.add(filas, columnas, btn, btn.getStyle());
         }
     }
 }

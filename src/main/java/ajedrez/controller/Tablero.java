@@ -1,9 +1,6 @@
 package ajedrez.controller;
 
 import ajedrez.model.Juego;
-import ajedrez.view.Registros;
-import ajedrez.view.TableroGrafico;
-import ajedrez.view.Turno;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;

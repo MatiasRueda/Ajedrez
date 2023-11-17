@@ -11,11 +11,10 @@ import javafx.scene.image.ImageView;
   https://es.wikipedia.org/wiki/Ajedrez */
 
 public class Imagen {
-    // Se coloca la imagen sobre el boton pasado por parametro.
+
     public void colocarImagen(String nombre,  String color, Button btnIcono, int tamanio) {
         URL linkImagen = getClass().getResource("/ajedrez/Imagenes/" + nombre + "_" + color + ".png");
         Image nuevaImagen = new Image(linkImagen.toString(), tamanio, tamanio, false, true);
         btnIcono.setGraphic((new ImageView(nuevaImagen)));
     }
-
 }

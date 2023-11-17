@@ -1,4 +1,4 @@
-package ajedrez.view;
+package ajedrez.controller;
 
 import ajedrez.model.Usuario;
 import javafx.scene.control.Label;

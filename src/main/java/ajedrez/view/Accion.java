@@ -16,7 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 
-public class BotonesLogica {
+public class Accion {
     private Boolean eleccionRealizada = false;
     private Button botonElegido;
     private int columnaEleccion;
@@ -26,13 +26,13 @@ public class BotonesLogica {
     
     private RegistroBotones registroBtn;
     private Juego juego;
-    private RegistroGraficos registroInfo;
+    private Paneles registroInfo;
 
-    private ImagenBoton imagenBtn = new ImagenBoton();
+    private Imagen imagenBtn = new Imagen();
     private Musica musica = ajedrez.controller.Menu.musica;
     private Escenas escenas = ajedrez.controller.Menu.escenas;
 
-    public BotonesLogica(RegistroBotones registroBtn, Juego juego, RegistroGraficos registroInfo, GridPane panel) {
+    public Accion(RegistroBotones registroBtn, Juego juego, Paneles registroInfo) {
         this.registroBtn = registroBtn;
         this.juego = juego;
         this.registroInfo = registroInfo;

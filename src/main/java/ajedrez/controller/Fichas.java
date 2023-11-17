@@ -1,14 +1,14 @@
 package ajedrez.controller;
 
 import ajedrez.model.FICHA;
-import ajedrez.view.ImagenBoton;
+import ajedrez.view.Imagen;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class Fichas {
-    private ImagenBoton imagenBoton = new ImagenBoton();
+    private Imagen imagenBoton = new Imagen();
     private String opcion;
     private String color;
     private final int TAMANIO = 80;

@@ -7,21 +7,21 @@ import javafx.scene.layout.GridPane;
 
 
 public class TableroGrafico{
-    private GridPane panel;
+    private GridPane tablero;
     private Juego juego;
-    private RegistroGraficos registroInfo;
+    private Paneles registro;
     private String color;
     private boolean casilleroBlanco = true;
     private RegistroBotones registroBtn = new RegistroBotones();
-    private BotonesEstilo botonesTablero = new BotonesEstilo();
-    private BotonesLogica botonesTableroLogica;
+    private Estilo botonesTablero = new Estilo();
+    private Accion botonesTableroLogica;
     
-    public TableroGrafico(Juego juego, RegistroGraficos registro, GridPane panel){
+    public TableroGrafico(Juego juego, Paneles registro, GridPane tablero){
         this.juego = juego;
-        this.panel = panel;
-        this.registroInfo = registro;
-        this.registroInfo.nuevoTurno(this.juego.getTurnoUsuario());
-        this.botonesTableroLogica = new BotonesLogica(this.registroBtn, this.juego, this.registroInfo, this.panel);
+        this.tablero = tablero;
+        this.registro = registro;
+        this.registro.nuevoTurno(this.juego.getTurnoUsuario());
+        this.botonesTableroLogica = new Accion(this.registroBtn, this.juego, this.registro);
         agregarBotones();
     }
 
@@ -46,7 +46,7 @@ public class TableroGrafico{
             if ((indiceNombres % 8) == 0) {
                 this.casilleroBlanco = (this.casilleroBlanco)? false : true;
             } 
-            this.panel.add(btn, columnas, filas);
+            this.tablero.add(btn, columnas, filas);
             this.registroBtn.add(filas, columnas, btn, btn.getStyle());
         }
     }

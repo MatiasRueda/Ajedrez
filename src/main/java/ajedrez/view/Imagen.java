@@ -10,7 +10,7 @@ import javafx.scene.image.ImageView;
 /* Las imagenes de las fichas fueron extraidas de la siguiente pagina
   https://es.wikipedia.org/wiki/Ajedrez */
 
-public class ImagenBoton {
+public class Imagen {
     // Se coloca la imagen sobre el boton pasado por parametro.
     public void colocarImagen(String nombre,  String color, Button btnIcono, int tamanio) {
         URL linkImagen = getClass().getResource("/ajedrez/Imagenes/" + nombre + "_" + color + ".png");

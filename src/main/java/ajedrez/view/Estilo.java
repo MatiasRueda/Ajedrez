@@ -2,8 +2,8 @@ package ajedrez.view;
 
 import javafx.scene.control.Button;
 
-public class BotonesEstilo {
-    private ImagenBoton imagenBtn = new ImagenBoton();
+public class Estilo {
+    private Imagen imagenBtn = new Imagen();
     private final int WIDTH_HEIGHT_BOTON = 100;
     private final int TAMANIO_IMAGEN = 80;
 

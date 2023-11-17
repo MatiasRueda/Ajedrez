@@ -7,17 +7,17 @@ import javafx.scene.control.Label;
 
 import javafx.scene.layout.TilePane;
 
-public class RegistroGraficos {
+public class Paneles {
     private TilePane panelUNO;
     private TilePane panelDOS;
     private Label turno;
-    private ImagenBoton imagenBtn = new ImagenBoton();
+    private Imagen imagenBtn = new Imagen();
     private int longitudUNO = 0;
     private int longitudDOS = 0;
     private final int WIDTH_HEIGHT_BOTON = 50;
     private final int TAMANIO_IMAGEN = 40;
 
-    public RegistroGraficos(TilePane panelUNO, TilePane panelDOS, Label turno) {
+    public Paneles(TilePane panelUNO, TilePane panelDOS, Label turno) {
         this.panelUNO = panelUNO;
         this.panelDOS = panelDOS;
         this.turno = turno;

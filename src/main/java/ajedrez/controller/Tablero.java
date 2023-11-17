@@ -1,8 +1,9 @@
 package ajedrez.controller;
 
 import ajedrez.model.Juego;
-import ajedrez.view.Paneles;
+import ajedrez.view.Registros;
 import ajedrez.view.TableroGrafico;
+import ajedrez.view.Turno;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
@@ -32,7 +33,7 @@ public class Tablero {
     private StackPane tablero;
 
     private Juego juego;
-    private Paneles paneles;
+    private Registros registros;
 
     public Tablero() {
         musica.musicaJuegoPlay();
@@ -41,8 +42,8 @@ public class Tablero {
     @FXML
     void initialize() {
         this.juego = new Juego();
-        this.paneles = new Paneles(registroUNO, registroDOS, turnoJugador);
-        new TableroGrafico(this.juego, this.paneles, this.gridPaneID);
+        this.registros = new Registros(registroUNO, registroDOS);
+        new TableroGrafico(this.juego, this.registros,  new Turno(turnoJugador), this.gridPaneID);
     }
 }
     

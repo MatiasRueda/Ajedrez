@@ -9,19 +9,19 @@ import javafx.scene.layout.GridPane;
 public class TableroGrafico{
     private GridPane tablero;
     private Juego juego;
-    private Paneles registro;
+    private Registros registros;
     private String color;
     private boolean casilleroBlanco = true;
     private RegistroBotones registroBtn = new RegistroBotones();
     private Estilo botonesTablero = new Estilo();
     private Accion botonesTableroLogica;
     
-    public TableroGrafico(Juego juego, Paneles registro, GridPane tablero){
+    public TableroGrafico(Juego juego, Registros registros, Turno turno, GridPane tablero){
         this.juego = juego;
         this.tablero = tablero;
-        this.registro = registro;
-        this.registro.nuevoTurno(this.juego.getTurnoUsuario());
-        this.botonesTableroLogica = new Accion(this.registroBtn, this.juego, this.registro);
+        this.registros = registros;
+        turno.nuevoTurno(this.juego.getTurnoUsuario());
+        this.botonesTableroLogica = new Accion(this.registroBtn, this.juego, turno, this.registros);
         agregarBotones();
     }
 

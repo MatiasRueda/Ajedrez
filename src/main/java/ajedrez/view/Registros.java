@@ -3,28 +3,21 @@ package ajedrez.view;
 import ajedrez.model.JUGADOR;
 import ajedrez.model.Usuario;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 
 import javafx.scene.layout.TilePane;
 
-public class Paneles {
+public class Registros {
     private TilePane panelUNO;
     private TilePane panelDOS;
-    private Label turno;
     private Imagen imagenBtn = new Imagen();
     private int longitudUNO = 0;
     private int longitudDOS = 0;
     private final int WIDTH_HEIGHT_BOTON = 50;
     private final int TAMANIO_IMAGEN = 40;
 
-    public Paneles(TilePane panelUNO, TilePane panelDOS, Label turno) {
+    public Registros(TilePane panelUNO, TilePane panelDOS) {
         this.panelUNO = panelUNO;
         this.panelDOS = panelDOS;
-        this.turno = turno;
-    }
-
-    public void nuevoTurno(Usuario usuario) {
-        this.turno.setText("Es el turno jugador: " + usuario.getJugador().toString());
     }
 
     public void  verificarCapturas(Usuario usuario) {

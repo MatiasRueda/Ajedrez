@@ -26,16 +26,18 @@ public class Accion {
     
     private RegistroBotones registroBtn;
     private Juego juego;
-    private Paneles registroInfo;
+    private Registros registroInfo;
+    private Turno turno;
 
     private Imagen imagenBtn = new Imagen();
     private Musica musica = ajedrez.controller.Menu.musica;
     private Escenas escenas = ajedrez.controller.Menu.escenas;
 
-    public Accion(RegistroBotones registroBtn, Juego juego, Paneles registroInfo) {
+    public Accion(RegistroBotones registroBtn, Juego juego, Turno turno , Registros registroInfo) {
         this.registroBtn = registroBtn;
         this.juego = juego;
         this.registroInfo = registroInfo;
+        this.turno = turno;
     }
 
 /*  Metodo encargado de graficar la eleccion, coloreando aquellos botones a los que
@@ -123,7 +125,7 @@ public class Accion {
             cargarSiguienteEscena();
         }
         this.juego.siguienteTurno();
-        this.registroInfo.nuevoTurno(this.juego.getTurnoUsuario());
+        this.turno.nuevoTurno(this.juego.getTurnoUsuario());
         eleccionRealizada = false;
         musica.musicaAceptadoPlay();
     }

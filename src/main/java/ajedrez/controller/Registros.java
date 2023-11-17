@@ -10,7 +10,7 @@ public class Registros {
 
     public Registros(TilePane panelUNO, TilePane panelDOS) {
         this.jugadorUNO = new Registro(panelUNO);
-        this.jugadorDOS = new Registro(panelUNO);
+        this.jugadorDOS = new Registro(panelDOS);
     }
 
     public boolean verificarCapturas(Usuario usuario) {

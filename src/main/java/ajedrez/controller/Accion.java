@@ -84,7 +84,7 @@ public class Accion {
 *   una escena con opciones de fichas y luego se agrega la imagen al peon
  */
     private void cambiarPeon(Button boton) throws IOException {
-        String color = this.juego.getTurnoUsuario().getColorActual();
+        String color = this.juego.getTurnoUsuario().getColor();
         FXMLLoader fxmlLoader = escenas.getFXML(ESCENA.FICHAS);
         Parent root = fxmlLoader.load();
         Fichas op = fxmlLoader.getController();

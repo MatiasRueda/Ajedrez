@@ -44,8 +44,13 @@ public class Usuario {
         return this.jugador;
     }
 
-    public String getColorActual() {
+    public String getColor() {
         return this.color.toString().toLowerCase();
+    }
+
+    public String getColorRival() {
+        COLOR color = this.color == COLOR.BLANCO? COLOR.NEGRO : COLOR.BLANCO;
+        return color.toString().toLowerCase();
     }
 
     public int cantidadCapturas() {

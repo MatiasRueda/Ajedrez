@@ -1,6 +1,5 @@
 package ajedrez.controller;
 
-import ajedrez.model.JUGADOR;
 import ajedrez.model.Usuario;
 import ajedrez.view.BotonCapturado;
 import javafx.scene.control.Button;
@@ -16,7 +15,7 @@ public class Registro {
     }
 
     public boolean verificarCapturas(Usuario usuario) {
-        String color = (usuario.getJugador() == JUGADOR.UNO)? "negro" : "blanco";
+        String color = usuario.getColorRival();
         if(usuario.cantidadCapturas() == longitud) 
             return false;
         Button capturado = botonCapturado.crear(usuario.getUltimaCaptura().getNombre(), color);

@@ -40,7 +40,7 @@ public class Juego {
     void initialize() {
         this.ajedrez = new Ajedrez();
         this.registros = new Registros(registroUNO, registroDOS);
-        new TableroGrafico(this.ajedrez, this.registros,  new Turno(turnoJugador), this.gridPaneID);
+        new Tablero(this.ajedrez, this.registros,  new Turno(turnoJugador), this.gridPaneID);
     }
 }
     

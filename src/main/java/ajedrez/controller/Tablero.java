@@ -6,7 +6,7 @@ import ajedrez.view.BotonTablero;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 
-public class TableroGrafico{
+public class Tablero{
     private GridPane tablero;
     private Ajedrez juego;
     private Registros registros;
@@ -16,7 +16,7 @@ public class TableroGrafico{
     private BotonTablero botonTablero = new BotonTablero();
     private Accion botonTableroLogica;
     
-    public TableroGrafico(Ajedrez juego, Registros registros, Turno turno, GridPane tablero){
+    public Tablero(Ajedrez juego, Registros registros, Turno turno, GridPane tablero){
         this.juego = juego;
         this.tablero = tablero;
         this.registros = registros;

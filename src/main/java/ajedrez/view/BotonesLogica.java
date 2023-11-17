@@ -8,6 +8,7 @@ import ajedrez.controller.ESCENA;
 import ajedrez.controller.Escenas;
 import ajedrez.controller.Fichas;
 import ajedrez.controller.Ganador;
+import ajedrez.controller.Musica;
 import ajedrez.model.Juego;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -28,7 +29,7 @@ public class BotonesLogica {
     private RegistroGraficos registroInfo;
 
     private ImagenBoton imagenBtn = new ImagenBoton();
-    private Musica musica = new Musica();
+    private Musica musica = ajedrez.controller.Menu.musica;
     private Escenas escenas = ajedrez.controller.Menu.escenas;
 
     public BotonesLogica(RegistroBotones registroBtn, Juego juego, RegistroGraficos registroInfo, GridPane panel) {

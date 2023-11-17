@@ -3,13 +3,10 @@ package ajedrez;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import java.io.IOException;
-
 import ajedrez.controller.ESCENA;
 import ajedrez.controller.Menu;
-import ajedrez.view.Musica;
 
 public class App extends Application {
-    private static Musica musica = new Musica();
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -18,7 +15,6 @@ public class App extends Application {
         Menu.escenas.setStage(stage);
         Stage menu = Menu.escenas.cambiarEscena(ESCENA.MENU);
         menu.show();
-        musica.musicaIntroPlay();
     }
 
     public static void main(String[] args) {

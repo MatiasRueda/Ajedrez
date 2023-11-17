@@ -1,4 +1,4 @@
-package ajedrez.view;
+package ajedrez.controller;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;

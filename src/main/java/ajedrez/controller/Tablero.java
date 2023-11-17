@@ -1,7 +1,6 @@
 package ajedrez.controller;
 
 import ajedrez.model.Juego;
-import ajedrez.view.Musica;
 import ajedrez.view.RegistroGraficos;
 import ajedrez.view.TableroGrafico;
 import javafx.fxml.FXML;
@@ -11,7 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
 
 public class Tablero {
-    private static Musica musica = new Musica();
+    private Musica musica = Menu.musica;
 
     @FXML
     private GridPane gridPaneID;

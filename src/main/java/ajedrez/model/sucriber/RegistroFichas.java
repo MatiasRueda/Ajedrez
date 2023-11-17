@@ -2,6 +2,7 @@ package ajedrez.model.sucriber;
 
 import java.util.HashMap;
 
+import ajedrez.model.FICHA;
 import ajedrez.model.publisher.Ficha;
 
 
@@ -13,7 +14,7 @@ public class RegistroFichas implements Suscriber {
     public void update(Ficha ficha) {
         capturadas.put(ficha.getId(), ficha);
         this.ultimaCaptura = ficha;
-        this.reyCapturado = (ficha.getNombre().equals("Rey"));
+        this.reyCapturado = (ficha.getNombre().equals(FICHA.REY.toString().toLowerCase()));
     }
 
     public Ficha getUltimaCaptura() {

@@ -136,7 +136,7 @@ public class Accion {
         String opcion = op.getOpcion();
         if (opcion.equals("Reiniciar")) {
             Musica.stopMusicaFondo();
-            escenas.cambiarEscena(ESCENA.TABLERO);
+            escenas.cambiarEscena(ESCENA.JUEGO);
             return;
         }
         Musica.stopMusicaFondo();

@@ -2,7 +2,7 @@ package ajedrez.controller;
 
 public enum ESCENA {
     MENU,
-    TABLERO,
+    JUEGO,
     FICHAS,
     GANADOR,
     INTRO,

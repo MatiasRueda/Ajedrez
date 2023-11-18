@@ -42,9 +42,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="ajedrez" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ajedrez.controller.Juego">
+<StackPane fx:id="stackPane" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ajedrez.controller.Juego">
    <children>
-      <VBox alignment="CENTER_LEFT" prefHeight="900.0" prefWidth="1300.0">
+      <VBox fx:id="ajedrez" alignment="CENTER_LEFT" prefHeight="900.0" prefWidth="1300.0">
          <children>
             <StackPane minHeight="80.0" style="-fx-background-color: skyblue;" VBox.vgrow="ALWAYS">
                <children>

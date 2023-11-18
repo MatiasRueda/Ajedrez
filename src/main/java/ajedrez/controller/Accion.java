@@ -63,6 +63,8 @@ public class Accion {
             this.control.colorearPosicionesOriginales();
             return false;
          }
+        if (this.juego.hayGanador()) 
+            cargarSiguienteEscena();
 
         this.registroInfo.verificarCapturas(this.juego.getTurnoUsuario());
         if (this.juego.getEnroque()) {
@@ -115,8 +117,6 @@ public class Accion {
  */
     private void siguienteTurno() throws IOException {
         this.control.colorearPosicionesOriginales();
-        if (this.juego.hayGanador()) 
-            cargarSiguienteEscena();
         this.juego.siguienteTurno();
         this.turno.nuevoTurno(this.juego.getTurnoUsuario());
         eleccionRealizada = false;
@@ -149,7 +149,8 @@ public class Accion {
  */
     private void logica(ActionEvent event, Button boton) throws IOException {
         if(eleccionRealizada) { 
-            if (elegirIntercambio(event, boton)) siguienteTurno(); 
+            if (elegirIntercambio(event, boton))
+                siguienteTurno(); 
             return; 
         }
         eleccion(event, boton);

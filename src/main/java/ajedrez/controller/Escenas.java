@@ -34,6 +34,11 @@ public class Escenas {
         stage.showAndWait();
     }
 
+    public void mostrarEnParalelo(Parent root) {
+
+
+    }
+
     public Stage cambiarEscena(ESCENA escena) throws IOException{
         Parent root = loadFXML(escena);
         Scene nuevaEscena = new Scene(root);

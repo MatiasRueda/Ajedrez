@@ -7,6 +7,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
+import javafx.scene.layout.VBox;
 
 public class Juego {
     private Musica musica = Menu.musica;
@@ -27,7 +28,10 @@ public class Juego {
     private Label turnoJugador;
 
     @FXML
-    private StackPane juego;
+    private StackPane StackPane;
+
+    @FXML
+    private VBox fondo;
 
     private Ajedrez ajedrez;
     private Registros registros;

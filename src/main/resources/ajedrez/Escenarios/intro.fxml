@@ -33,15 +33,16 @@
 -->
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="intro" prefHeight="865.0" prefWidth="1015.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ajedrez.controller.Intro">
+
+<StackPane fx:id="intro" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ajedrez.controller.Intro">
    <children>
-      <Label fx:id="presentacion" alignment="CENTER" contentDisplay="CENTER" layoutX="285.0" layoutY="298.0" prefHeight="269.0" prefWidth="487.0" text="Catedra Corsi-Essaya-Maraggi   " textFill="#fffffffc">
+      <Label fx:id="presentacion" alignment="CENTER" contentDisplay="CENTER" prefHeight="900.0" prefWidth="1300.0" text="Catedra Corsi-Essaya-Maraggi   " textFill="#fffffffc">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
    </children>
-</Pane>
+</StackPane>

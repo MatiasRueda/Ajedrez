@@ -43,6 +43,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+
 <GridPane fx:id="menu" alignment="CENTER_LEFT" prefHeight="900.0" prefWidth="1300.0" stylesheets="@../Estilos/menu.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ajedrez.controller.Menu">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="30.0" />
@@ -52,7 +53,7 @@
       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <VBox fx:id="opciones" alignment="CENTER" GridPane.vgrow="ALWAYS">
+      <VBox fx:id="opciones" alignment="CENTER" style="-fx-background-color: white;" GridPane.vgrow="ALWAYS">
          <children>
             <StackPane fx:id="titulo" VBox.vgrow="ALWAYS">
                <children>

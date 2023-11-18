@@ -8,18 +8,22 @@ import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 
 
 public class Intro {
-    private Escenas escenas = Menu.escenas;
+    public final static Escenas escenas = new Escenas();
+    public final static Musica musica = new Musica();
 
     @FXML
-    private Pane intro;
+    private StackPane intro;
 
     @FXML
     private Label presentacion;
 
+    public Intro() {
+        musica.musicaFondoPlay(MUSICA_FONDO.INTRO);
+    }
 
     @FXML
     void initialize() {

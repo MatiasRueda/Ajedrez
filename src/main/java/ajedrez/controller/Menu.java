@@ -11,19 +11,14 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class Menu {
-    public final static Escenas escenas = new Escenas();
-    public final static Musica musica = new Musica();
+    public final static Escenas escenas = Intro.escenas;
+    public final static Musica musica = Intro.musica;
 
     @FXML
     private GridPane menu;
 
     @FXML
     private StackPane inicio;
-
-
-    public Menu() {
-        musica.musicaFondoPlay(MUSICA_FONDO.INTRO);
-    } 
 
     @FXML
     void jugar(ActionEvent event) throws IOException {

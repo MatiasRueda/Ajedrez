@@ -62,9 +62,7 @@ public class Accion {
             musica.musicaErrorPlay();
             this.control.colorearPosicionesOriginales();
             return false;
-         }
-        if (this.juego.hayGanador()) 
-            cargarSiguienteEscena();
+        }
 
         this.registroInfo.verificarCapturas(this.juego.getTurnoUsuario());
         if (this.juego.getEnroque()) {
@@ -116,6 +114,8 @@ public class Accion {
  *  siguiente turno, verificando antes si el jugador gano
  */
     private void siguienteTurno() throws IOException {
+        if (this.juego.hayGanador()) 
+            cargarSiguienteEscena();
         this.control.colorearPosicionesOriginales();
         this.juego.siguienteTurno();
         this.turno.nuevoTurno(this.juego.getTurnoUsuario());

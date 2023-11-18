@@ -6,4 +6,6 @@ public enum ESCENA {
     FICHAS,
     GANADOR,
     INTRO,
+    CONFIGURACION,
+    CREDITOS
 }

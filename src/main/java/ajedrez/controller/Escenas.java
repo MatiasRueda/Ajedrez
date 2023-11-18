@@ -16,7 +16,7 @@ public class Escenas {
         return new FXMLLoader(App.class.getResource("/ajedrez/Escenarios/"+ fxml.toString().toLowerCase() + ".fxml"));
     }
 
-    private Parent loadFXML(ESCENA fxml) throws IOException {
+    public Parent loadFXML(ESCENA fxml) throws IOException {
         FXMLLoader fxmlLoader = this.getFXML(fxml);
         return fxmlLoader.load();
     }

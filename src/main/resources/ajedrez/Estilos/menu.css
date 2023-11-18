@@ -8,13 +8,13 @@
     -fx-border-width: 2 2 2 2;
 }
 
-#jugar {
+#boton {
     -fx-background-color: white;
     -fx-border-color: black;
     -fx-border-width: 1.5;
 }
 
-#jugar:hover {
+#boton:hover {
     -fx-text-fill: white;
     -fx-background-color: black;
     -fx-border-color: black;

@@ -1,0 +1,10 @@
+#aceptar {
+    -fx-background-color: white;
+    -fx-border-width: 2;
+    -fx-border-color: black;
+}
+
+#aceptar:hover {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}

@@ -37,16 +37,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<GridPane alignment="CENTER_LEFT" prefHeight="900.0" prefWidth="1300.0" stylesheets="@../Estilos/menu.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ajedrez.controller.Menu">
+<GridPane fx:id="menu" alignment="CENTER_LEFT" prefHeight="900.0" prefWidth="1300.0" stylesheets="@../Estilos/menu.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ajedrez.controller.Menu">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="30.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="70.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" percentWidth="70.0" />
    </columnConstraints>
    <rowConstraints>
       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
@@ -65,7 +65,34 @@
             </StackPane>
             <VBox alignment="CENTER" prefHeight="700.0">
                <children>
-                  <Button fx:id="jugar" alignment="CENTER" mnemonicParsing="false" onAction="#jugar" prefHeight="100.0" prefWidth="300.0" text="Jugar">
+                  <Button fx:id="boton" alignment="CENTER" mnemonicParsing="false" onAction="#jugar" prefHeight="100.0" prefWidth="300.0" text="Jugar">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Region prefHeight="20.0" prefWidth="200.0" />
+                  <Button fx:id="boton" alignment="CENTER" mnemonicParsing="false" onAction="#configuracion" prefHeight="100.0" prefWidth="300.0" text="Configuracion">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Region prefHeight="20.0" prefWidth="200.0" />
+                  <Button fx:id="boton" alignment="CENTER" mnemonicParsing="false" onAction="#creditos" prefHeight="100.0" prefWidth="300.0" text="Creditos">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Region prefHeight="20.0" prefWidth="200.0" />
+                  <Button fx:id="boton" alignment="CENTER" mnemonicParsing="false" onAction="#salir" prefHeight="100.0" prefWidth="300.0" text="Salir">
                      <font>
                         <Font size="32.0" />
                      </font>
@@ -77,6 +104,6 @@
             </VBox>
          </children>
       </VBox>
-      <StackPane style="-fx-background-color: skyblue;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" />
+      <StackPane fx:id="inicio" style="-fx-background-color: skyblue;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" />
    </children>
 </GridPane>

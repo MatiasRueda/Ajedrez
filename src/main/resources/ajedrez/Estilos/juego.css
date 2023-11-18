@@ -1,0 +1,10 @@
+#btnMusica {
+    -fx-border-radius: 30;
+    -fx-border-width: 2;
+    -fx-background-color: white;
+}
+
+#btnMusica:hover {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}

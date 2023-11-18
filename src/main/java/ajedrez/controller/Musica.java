@@ -48,5 +48,9 @@ public class Musica {
         efectoSonido.setVolume(VOLUMEN);
         efectoSonido.play();
     }
+
+    public void pausarMusicaFondo() {
+        musicaFondo.stop();
+    }
     
 }

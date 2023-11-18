@@ -56,8 +56,13 @@
                         <Font size="27.0" />
                      </font>
                   </Label>
-                  <StackPane alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="436.0">
+                  <VBox alignment="TOP_RIGHT" prefHeight="53.0" prefWidth="423.0">
                      <children>
+                        <Label alignment="CENTER" prefHeight="11.0" prefWidth="69.0" text="Musica" textAlignment="CENTER">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
                         <Button fx:id="btnMusica" mnemonicParsing="false" onAction="#controlarMusica" prefHeight="30.0" prefWidth="70.0" text="C">
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -65,9 +70,9 @@
                         </Button>
                      </children>
                      <padding>
-                        <Insets right="20.0" />
+                        <Insets right="20.0" top="10.0" />
                      </padding>
-                  </StackPane>
+                  </VBox>
                </children>
             </HBox>
             <HBox fx:id="hboxID" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="820.0" minWidth="-Infinity" VBox.vgrow="ALWAYS">

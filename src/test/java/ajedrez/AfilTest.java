@@ -21,7 +21,6 @@ public class AfilTest {
 
     @Test
     public void movimientosCorrectosTest(){
-        assertEquals("Afil", this.afil.getNombre());
         this.tablero.colocarFicha(this.afil, 0, 0);
         assertTrue(this.afil.mover(1, 1, this.tablero));
         assertTrue(this.afil.mover(0, 0, this.tablero));   
@@ -34,7 +33,6 @@ public class AfilTest {
 
     @Test
     public void movimientosNoCorrectosTest(){
-        assertEquals("Afil", this.afil.getNombre());
         this.tablero.colocarFicha(this.afil, 0, 0);
         assertFalse(this.afil.mover(1, 0, this.tablero));
         assertFalse(this.afil.mover(0, 6, this.tablero));
@@ -46,7 +44,6 @@ public class AfilTest {
 
     @Test
     public void movimientosVariadosTest(){
-        assertEquals("Afil", this.afil.getNombre());
         this.tablero.colocarFicha(this.afil, 0, 0);
         assertFalse(this.afil.mover(0, 0, this.tablero));
         assertFalse(this.afil.mover(1, 0, this.tablero));

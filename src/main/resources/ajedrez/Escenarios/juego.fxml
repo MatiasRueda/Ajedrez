@@ -72,7 +72,7 @@
             </HBox>
             <HBox fx:id="hboxID" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="820.0" minWidth="-Infinity" VBox.vgrow="ALWAYS">
                <children>
-                  <VBox alignment="CENTER_LEFT" prefWidth="250.0" HBox.hgrow="ALWAYS">
+                  <VBox alignment="CENTER_LEFT" prefWidth="232.0" HBox.hgrow="ALWAYS">
                      <children>
                         <StackPane minHeight="50.0">
                            <children>
@@ -88,7 +88,7 @@
                         <TilePane fx:id="registroDOS" prefHeight="350.0" prefWidth="250.0" style="-fx-background-color: grey;" />
                      </children>
                   </VBox>
-                  <StackPane prefHeight="820.0" prefWidth="1050.0">
+                  <StackPane prefHeight="820.0" prefWidth="1068.0">
                      <children>
                         <GridPane fx:id="gridPaneID" alignment="CENTER" gridLinesVisible="true" prefHeight="820.0">
                           <columnConstraints>

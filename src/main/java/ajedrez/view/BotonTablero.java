@@ -18,19 +18,30 @@ public class BotonTablero {
         boton.setMinWidth(WIDTH_HEIGHT_BOTON);
         String colorCasillero = (casillero)? "white" : "green";
         boton.setId(colorCasillero);
-        boton.setStyle("-fx-background-color: "+ colorCasillero + ";" + borde);
-        if (nombreDeLaFicha.equals("")) 
+        if (nombreDeLaFicha.equals("")) {
+            boton.setStyle("-fx-background-color: "+ colorCasillero + ";" + "-fx-cursor: DEFAULT; " + borde);
             return boton;
+        }
+        boton.setStyle("-fx-background-color: "+ colorCasillero + ";" + "-fx-cursor: HAND; " + borde);
         imagen.colocarImagen(nombreDeLaFicha, color, boton, TAMANIO_IMAGEN);
         return boton;
     }
 
+    public void actualizarEstilos(Button btnElegido, Button btnMover) {
+        btnMover.setGraphic(btnElegido.getGraphic());
+        btnMover.setStyle("-fx-background-color: " + btnMover.getId() + "; " + "-fx-cursor: HAND; " + borde );
+        btnElegido.setGraphic(null);
+        btnElegido.setStyle("-fx-background-color: " + btnElegido.getId() + "; " + "-fx-cursor: DEFAULT; " + borde );
+    }
+
     public void colorOriginal(Button boton) {
-        boton.setStyle("-fx-background-color: " + boton.getId());
+        String estiloAnterior = boton.getStyle();
+        boton.setStyle(estiloAnterior + "-fx-background-color: " + boton.getId() + "; " + borde);
     }
 
     public void colorPosiblePosicion(Button boton) {
-        boton.setStyle("-fx-background-color: red;" + borde);
+        String estiloAnterior = boton.getStyle();
+        boton.setStyle(estiloAnterior + "-fx-background-color: red;" + borde);
     }
 }
 

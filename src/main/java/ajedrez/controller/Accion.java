@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import ajedrez.model.Ajedrez;
 import ajedrez.model.FICHA;
+import ajedrez.view.BotonTablero;
 import ajedrez.view.Imagen;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -25,6 +26,7 @@ public class Accion {
     private Turno turno;
 
     private Imagen imagenBtn = new Imagen();
+    private BotonTablero btnTablero = new BotonTablero();
     private Musica musica = ajedrez.controller.Menu.musica;
     private Escenas escenas = ajedrez.controller.Menu.escenas;
 
@@ -75,8 +77,8 @@ public class Accion {
         }
         if (juego.getJaque()) 
             musica.musicaJaquePlay();
-        boton.setGraphic(botonElegido.getGraphic());
-        botonElegido.setGraphic(null);
+        this.control.colorearPosicionesOriginales();
+        btnTablero.actualizarEstilos(botonElegido, boton);
         return true;
     }
 
@@ -116,7 +118,6 @@ public class Accion {
     private void siguienteTurno() throws IOException {
         if (this.juego.hayGanador()) 
             cargarSiguienteEscena();
-        this.control.colorearPosicionesOriginales();
         this.juego.siguienteTurno();
         this.turno.nuevoTurno(this.juego.getTurnoUsuario());
         eleccionRealizada = false;

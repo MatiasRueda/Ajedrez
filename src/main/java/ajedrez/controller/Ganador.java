@@ -10,7 +10,7 @@ public class Ganador {
     public String opcion;
 
     @FXML
-    private Label ganador;
+    private Label jugadorGanador;
 
     @FXML
     private Button menuBtn;
@@ -19,7 +19,7 @@ public class Ganador {
     private Button reiniciarBtn;
 
     public void setMensaje(String Jugador) {
-        this.ganador.setText("Felicidades jugador " + Jugador + " ganaste!!!");
+        this.jugadorGanador.setText("Felicidades jugador " + Jugador + " ganaste!!!");
     }
 
     public String getOpcion() {
@@ -27,16 +27,10 @@ public class Ganador {
     }
 
     @FXML
-    void menu(ActionEvent event) {
-        this.opcion = menuBtn.getText();
-        Stage sta = (Stage) this.menuBtn.getScene().getWindow();
-        sta.close();
-    }
-
-    @FXML
-    void reiniciar(ActionEvent event) {
-        this.opcion = reiniciarBtn.getText();
-        Stage sta = (Stage) this.reiniciarBtn.getScene().getWindow();
+    void eleccion(ActionEvent event) {
+        Button boton = ((Button)event.getSource());
+        this.opcion = boton.getText();
+        Stage sta = (Stage) boton.getScene().getWindow();
         sta.close();
     }
 

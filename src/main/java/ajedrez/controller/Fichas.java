@@ -5,6 +5,7 @@ import ajedrez.view.Imagen;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Fichas {
@@ -14,16 +15,19 @@ public class Fichas {
     private final int TAMANIO = 80;
 
     @FXML
-    private Button botonTorre;
+    private VBox fichas;
 
     @FXML
-    private Button botonAfil;
+    private Button btnTorre;
 
     @FXML
-    private Button botonReina;
+    private Button btnAfil;
 
     @FXML
-    private Button botonCaballo;
+    private Button btnReina;
+
+    @FXML
+    private Button btnCaballo;
 
     private FICHA getFicha(String opcion) {
         if (opcion.toUpperCase().equals(FICHA.PEON.toString())) 
@@ -44,10 +48,10 @@ public class Fichas {
     }
 
     public void agregarImagenes() {
-        imagenBoton.colocarImagen(botonTorre.getText(), this.color, botonTorre, TAMANIO);
-        imagenBoton.colocarImagen(botonAfil.getText(), this.color, botonAfil, TAMANIO);
-        imagenBoton.colocarImagen(botonReina.getText(), this.color, botonReina, TAMANIO);
-        imagenBoton.colocarImagen(botonCaballo.getText(), this.color, botonCaballo, TAMANIO);
+        imagenBoton.colocarImagen(btnTorre.getText(), this.color, btnTorre, TAMANIO);
+        imagenBoton.colocarImagen(btnAfil.getText(), this.color, btnAfil, TAMANIO);
+        imagenBoton.colocarImagen(btnReina.getText(), this.color, btnReina, TAMANIO);
+        imagenBoton.colocarImagen(btnCaballo.getText(), this.color, btnCaballo, TAMANIO);
     }
 
     public void setColor(String color) {

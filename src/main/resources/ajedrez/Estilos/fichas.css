@@ -1,0 +1,12 @@
+#btnTorre, #btnAfil, #btnCaballo, #btnReina {
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-width: 1;
+    -fx-background-insets: 0;
+}
+
+#fichas {
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-background-insets: 0;
+}

@@ -1,0 +1,15 @@
+#ganador {
+    -fx-border-color: black;
+    -fx-border-width: 2;
+}
+
+#btnEleccion {
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-width: 2;
+}
+
+#btnEleccion:hover {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}

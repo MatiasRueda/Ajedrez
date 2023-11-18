@@ -25,8 +25,8 @@ public class Ajedrez {
         this.turnoUsuario = new TurnoUsuario(this.tablero);
     }
 
-    private void enroque(int columnaEleccion) {
-        this.enroqueRey = (columnaEleccion == 0)? 2 : 6;
+    private void enroque(ArrayList<Integer> posicion) {
+        this.enroqueRey = posicion.get(1) == 0? 2 : 6;
         this.enroqueTorre = (this.enroqueRey == 2)? 3 : 5;
         this.movimientoEnroque = true;
     }
@@ -53,16 +53,18 @@ public class Ajedrez {
     }
 
     public Boolean moverFicha(int fila, int columna) {
-        if (this.fichaMover == null) return false;
+        if (this.fichaMover == null) 
+            return false;
+        var posicionAnterior = this.tablero.ubicacionActualFicha(fichaMover);
         this.fichaElegida = this.tablero.getFicha(fila, columna);
-        if (!this.turnoUsuario.getTurnoActual().moverFicha(fila, columna, this.fichaMover)) return false;
-
+        if (!this.turnoUsuario.getTurnoActual().moverFicha(fila, columna, this.fichaMover)) 
+            return false;
         if (this.fichaElegida != null && 
             this.fichaMover.mismoTipo(FICHA.TORRE) && 
             this.fichaElegida.mismoTipo(FICHA.REY) && 
             this.fichaMover.getJugador() == this.fichaElegida.getJugador())
-                enroque(columna);
-        if (this.fichaMover.mismoTipo(FICHA.PEON)  && fila == this.fichaMover.getUltimaFila())
+                enroque(posicionAnterior);
+        if (this.fichaMover.mismoTipo(FICHA.PEON) && fila == this.fichaMover.getUltimaFila())
             this.cambioPeon = true;
         Usuario jugando = this.turnoUsuario.getTurnoActual();
         Usuario rival = this.turnoUsuario.getRival(); 

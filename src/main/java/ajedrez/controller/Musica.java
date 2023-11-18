@@ -20,7 +20,7 @@ public class Musica {
     public static MediaPlayer efectoSonido;
     private Media media2 = null;
 
-    private final double VOLUMEN = 0.05;
+    private final double VOLUMEN = 0;
     
     public void musicaIntroPlay() {
         media = new Media(getClass().getResource("/ajedrez/Musica/musica_generica.mp3").toString());

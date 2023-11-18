@@ -37,7 +37,7 @@ public class Juego {
     private Registros registros;
 
     public Juego() {
-        musica.musicaJuegoPlay();
+        musica.musicaFondoPlay(MUSICA_FONDO.JUEGO);
     }
 
     @FXML

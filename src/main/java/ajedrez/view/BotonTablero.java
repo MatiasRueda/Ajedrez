@@ -43,5 +43,16 @@ public class BotonTablero {
         String estiloAnterior = boton.getStyle();
         boton.setStyle(estiloAnterior + "-fx-background-color: red;" + borde);
     }
+
+    public void estilizarEnroque(Button nuevaTorre , Button nuevoRey ,Button btnElegido , Button btnMover) {
+        nuevaTorre.setGraphic(btnElegido.getGraphic());
+        nuevaTorre.setStyle(nuevaTorre.getStyle() + "-fx-cursor: HAND;");
+        nuevoRey.setGraphic(btnMover.getGraphic());
+        nuevoRey.setStyle(nuevoRey.getStyle() + "-fx-cursor: HAND;");
+        btnMover.setGraphic(null);
+        btnMover.setStyle(btnMover.getStyle() + "-fx-cursor: DEFAULT;");
+        btnElegido.setGraphic(null);
+        btnElegido.setStyle(btnElegido.getStyle() + "-fx-cursor: DEFAULT;");
+    }
 }
 

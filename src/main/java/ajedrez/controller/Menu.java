@@ -11,12 +11,11 @@ public class Menu {
 
 
     public Menu() {
-        musica.musicaIntroPlay();
+        musica.musicaFondoPlay(MUSICA_FONDO.INTRO);
     } 
 
     @FXML
     void jugar(ActionEvent event) throws IOException {
-        Musica.stopMusicaFondo();
         escenas.cambiarEscena(ESCENA.JUEGO);
     }
 }

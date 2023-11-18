@@ -61,12 +61,13 @@ public class Accion {
         filaCambiar = GridPane.getRowIndex((Button)event.getSource());
         if (!this.juego.moverFicha(filaCambiar, columnaCambiar)){ 
             eleccionRealizada = false;
-            musica.musicaErrorPlay();
+            musica.sonidoPlay(SONIDO.ERROR);
             this.control.colorearPosicionesOriginales();
             return false;
         }
 
         this.registroInfo.verificarCapturas(this.juego.getTurnoUsuario());
+        this.control.colorearPosicionesOriginales();
         if (this.juego.getEnroque()) {
             enroque(boton, juego.getNuevaColumnaRey(), juego.getNuevaColumnaTorre());
             return true;
@@ -76,8 +77,7 @@ public class Accion {
             return true;
         }
         if (juego.getJaque()) 
-            musica.musicaJaquePlay();
-        this.control.colorearPosicionesOriginales();
+            musica.sonidoPlay(SONIDO.JAQUE);
         btnTablero.actualizarEstilos(botonElegido, boton);
         return true;
     }
@@ -106,10 +106,7 @@ public class Accion {
     private void enroque(Button boton, int columnaRey, int columnaTorre) {
         Button nuevaTorre = control.getBtn(filaEleccion, columnaTorre);
         Button nuevoRey = control.getBtn(filaCambiar, columnaRey);
-        nuevaTorre.setGraphic(this.botonElegido.getGraphic());
-        nuevoRey.setGraphic(boton.getGraphic());
-        boton.setGraphic(null);
-        botonElegido.setGraphic(null);
+        btnTablero.estilizarEnroque(nuevaTorre, nuevoRey, botonElegido, boton);
     }
 
 /*  Metodo que se encarga de mostrar como se avanza al  
@@ -121,7 +118,7 @@ public class Accion {
         this.juego.siguienteTurno();
         this.turno.nuevoTurno(this.juego.getTurnoUsuario());
         eleccionRealizada = false;
-        musica.musicaAceptadoPlay();
+        musica.sonidoPlay(SONIDO.ACERTADO);
     }
 
 /*  Metodo que muestra una escena con dos opciones, y se encarga de cargar una escena
@@ -136,12 +133,10 @@ public class Accion {
         escenas.mostrarStage(root);
         String opcion = op.getOpcion();
         if (opcion.equals("Reiniciar")) {
-            Musica.stopMusicaFondo();
             escenas.cambiarEscena(ESCENA.JUEGO);
             return;
         }
-        Musica.stopMusicaFondo();
-        musica.musicaIntroPlay();
+        musica.musicaFondoPlay(MUSICA_FONDO.INTRO);
         escenas.cambiarEscena(ESCENA.MENU);
     }
 

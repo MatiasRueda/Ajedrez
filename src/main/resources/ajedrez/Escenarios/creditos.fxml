@@ -9,7 +9,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="910.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pequeño proyecto realizado con materiales de las siguiente paginas:" textAlignment="CENTER" wrappingWidth="697.80517578125">
@@ -20,12 +19,12 @@
       <Region prefHeight="50.0" prefWidth="200.0" />
       <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
          <children>
-            <Label prefHeight="32.0" prefWidth="270.0" text="Musica descargada de:   ">
+            <Label prefHeight="32.0" prefWidth="400.0" text="Musica descargada de:   ">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <Hyperlink text="https://pixabay.com">
+            <Hyperlink prefHeight="42.0" prefWidth="400.0" text="https://pixabay.com">
                <font>
                   <Font size="22.0" />
                </font>
@@ -34,12 +33,12 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
          <children>
-            <Label prefHeight="32.0" prefWidth="270.0" text="Sonidos descargados de: ">
+            <Label prefHeight="32.0" prefWidth="400.0" text="Sonidos descargados de: ">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <Hyperlink text="https://pixabay.com">
+            <Hyperlink prefWidth="400.0" text="https://pixabay.com">
                <font>
                   <Font size="22.0" />
                </font>
@@ -48,12 +47,12 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
          <children>
-            <Label text="Imagen de las fichas descargadas de: ">
+            <Label prefHeight="32.0" prefWidth="400.0" text="Imagenes de las fichas descargadas de: ">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <Hyperlink text=" https://es.wikipedia.org/wiki/Ajedrez ">
+            <Hyperlink prefWidth="400.0" text=" https://es.wikipedia.org/wiki/Ajedrez ">
                <font>
                   <Font size="22.0" />
                </font>

@@ -7,8 +7,8 @@ La idea principal es demostrar los distintos conocimientos en patrones de diseñ
 Por ejemplo se utiliza el patrón de diseño Observer para ayudarme a notificar al usuario cual pieza es capturada y  Abstract Factory para poder fabricar las distintas fichas del juego.
 En caso de no tener conocimientos sobre el juego acá un articulo sobre el mismo: [https://es.wikipedia.org/wiki/Ajedrez](https://es.wikipedia.org/wiki/Ajedrez)
 
-## Personas Contribuyentes
-Proyecto realizado únicamente por mi.
+## Tipo de proyecto
+Proyecto individual.
 
 ## Tecnologías utilizadas
   - Java

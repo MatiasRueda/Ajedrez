@@ -2,7 +2,7 @@
 ![Static Badge](https://img.shields.io/badge/Estado%20-%20Terminado%20-%20green)
 
 ## Introducción
-Proyecto para la Facultad de Ingeniería Universidad de Buenos Aires. 
+Trabajo practico de la materia algoritmo y programacion 3 de la Facultad de Ingeniería Universidad de Buenos Aires. 
 La idea principal es demostrar los distintos conocimientos en patrones de diseño y en el patron de arquitectura (MVC). 
 Por ejemplo se utiliza el patrón de diseño Observer para ayudarme a notificar al usuario cual pieza es capturada y  Abstract Factory para poder fabricar las distintas fichas del juego.
 En caso de no tener conocimientos sobre el juego acá un articulo sobre el mismo: [https://es.wikipedia.org/wiki/Ajedrez](https://es.wikipedia.org/wiki/Ajedrez)

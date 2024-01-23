@@ -165,5 +165,5 @@ Para poder utilizarlo (En visual studio code):
 ## Uso
 Para poder utilizar este proyecto hay que utilizar el siguiente comando:
 ```
- mvn clean javafx:run 
+mvn clean javafx:run 
 ```

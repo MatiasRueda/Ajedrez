@@ -30,7 +30,7 @@ Proyecto individual.
 
 
 ## Estrategias
-### Patrones de disenio:
+### Patrones de diseño:
 ***Observer***: Utilizado para ayudarme a notificar al usuario cual pieza es capturada.
 ***Abstract Factory***: Este patron fue aplicado para fabricar las distintas fichas del juego.
 ### Patrón de arquitectura (MVC):
@@ -39,6 +39,7 @@ Utilizado principalmente para que la aplicacion tengo un mayor escalamiento
 ## Tecnologías utilizadas
   - Java
   - JavaFX
+  - CSS
   - Maven
   - JUnit
  

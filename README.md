@@ -39,6 +39,7 @@ Utilizado principalmente para que la aplicacion tengo un mayor escalamiento
 ## Tecnologías utilizadas
   - Java
   - JavaFX
+  - Maven
   - JUnit
  
 ## Estructura
@@ -157,9 +158,7 @@ Ajedrez
 
 
 ## Instalación
-Para poder utilizarlo (En visual studio code):
-1. Es necesario tener instalado Java y Javafx.
-2. Abra visual studio code e instale la extensión 'Extension Pack for Java'
+Para poder utilizarlo es necesario tener instalado Java , Javafx y Maven.
 
 
 ## Uso
